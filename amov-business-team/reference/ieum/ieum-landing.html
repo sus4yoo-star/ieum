@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이음 · 우리 학원 전용 앱</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16213a; --ink2:#243151; --ink-soft:#3a4a6b;
+    --paper:#f7f4ee; --card:#ffffff; --line:#e3dccb;
+    --coral:#2A8FD8; --coral-d:#1C6FB0; --coral-soft:#8CD004;
+    --teal:#1f6f6b; --gold:#be9b4e; --mute:#7a8299;
+    --sans:'Pretendard',sans-serif; --serif:'Fraunces',serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.6;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px;}
+  section{position:relative;}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(22,33,58,.92);backdrop-filter:blur(8px);color:#fff;}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.03em;}
+  .logo .wm{font-family:'Noto Serif KR',serif;font-weight:700;letter-spacing:-.02em;}
+  .logo .en{font-size:9px;letter-spacing:.22em;color:var(--coral-soft);font-weight:700;text-transform:uppercase;}
+  nav a.cta{background:var(--coral);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:9px 17px;border-radius:30px;transition:.2s;}
+  nav a.cta:hover{background:var(--coral-d);}
+
+  /* HERO */
+  .hero{background:radial-gradient(130% 120% at 90% -10%, rgba(42,143,216,.22), transparent 55%),linear-gradient(165deg,#16213a,#243151);color:#f7f4ee;padding:64px 0 72px;overflow:hidden;}
+  .badge-line{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:6px 14px;border-radius:30px;font-size:13px;color:var(--coral-soft);font-weight:600;margin-bottom:24px;}
+  .badge-line .dot{width:7px;height:7px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(42,143,216,.6);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(42,143,216,.6);}70%{box-shadow:0 0 0 9px rgba(42,143,216,0);}100%{box-shadow:0 0 0 0 rgba(42,143,216,0);}}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:44px;line-height:1.18;letter-spacing:-.015em;margin-bottom:20px;}
+  .hero h1 b{font-weight:600;color:var(--coral-soft);}
+  .hero p.sub{font-size:18px;color:#d3dae9;max-width:620px;margin-bottom:34px;line-height:1.65;}
+  .hero-btns{display:flex;gap:13px;flex-wrap:wrap;}
+  .btn{text-decoration:none;font-weight:700;border-radius:30px;padding:15px 28px;font-size:16px;transition:.2s;display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:0 14px 30px -10px rgba(42,143,216,.6);}
+  .btn-primary:hover{background:var(--coral-d);transform:translateY(-2px);}
+  .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.22);}
+  .btn-ghost:hover{background:rgba(255,255,255,.16);}
+  .hero-note{margin-top:20px;font-size:13.5px;color:#9aa5bd;}
+
+  /* SECTION GENERIC */
+  .sec{padding:70px 0;}
+  .kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--coral);font-weight:800;text-align:center;margin-bottom:14px;}
+  .sec h2{font-family:var(--serif);font-weight:600;font-size:32px;text-align:center;letter-spacing:-.01em;line-height:1.25;margin-bottom:16px;}
+  .sec .lead{text-align:center;color:var(--ink-soft);font-size:16.5px;max-width:640px;margin:0 auto 48px;}
+
+  /* PAIN */
+  .pain{background:var(--card);}
+  .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .pain-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;gap:15px;align-items:flex-start;}
+  .pain-card .ic{flex:none;width:42px;height:42px;border-radius:12px;background:#fdeee9;display:flex;align-items:center;justify-content:center;}
+  .pain-card h4{font-size:16px;font-weight:700;margin-bottom:5px;}
+  .pain-card p{font-size:14px;color:var(--mute);line-height:1.55;}
+
+  /* SOLUTION */
+  .sol-hero{background:linear-gradient(160deg,#fbf8f2,#fff);border:1px solid var(--line);border-radius:22px;padding:40px;text-align:center;margin-bottom:14px;}
+  .sol-hero .mark{margin-bottom:18px;}
+  .sol-hero h3{font-family:var(--serif);font-size:26px;font-weight:600;margin-bottom:12px;}
+  .sol-hero p{color:var(--ink-soft);font-size:16px;max-width:560px;margin:0 auto;}
+
+  /* FEATURES */
+  .feat-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .feat-col{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;}
+  .feat-col .tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;padding:5px 13px;border-radius:20px;margin-bottom:18px;}
+  .feat-col ul{list-style:none;}
+  .feat-col li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #f0ebe0;font-size:15px;color:var(--ink-soft);}
+  .feat-col li:last-child{border-bottom:none;}
+  .feat-col li .chk{flex:none;color:var(--teal);font-weight:800;margin-top:1px;}
+
+  /* WHY */
+  .why{background:var(--ink);color:#fff;}
+  .why h2{color:#fff;}
+  .why .lead{color:#b9c4d6;}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px;}
+  .why-card .n{font-family:var(--serif);font-size:15px;color:var(--coral-soft);font-weight:600;margin-bottom:10px;}
+  .why-card h4{font-size:17px;font-weight:700;margin-bottom:8px;}
+  .why-card p{font-size:14px;color:#aeb8cf;line-height:1.55;}
+
+  /* OFFER */
+  .offer-box{background:linear-gradient(160deg,#fff,#fbf8f2);border:2px solid var(--coral);border-radius:24px;padding:40px;max-width:620px;margin:0 auto;text-align:center;position:relative;box-shadow:0 30px 60px -32px rgba(42,143,216,.4);}
+  .offer-tag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:13px;font-weight:700;padding:7px 20px;border-radius:30px;white-space:nowrap;}
+  .offer-box h3{font-size:21px;font-weight:800;margin:8px 0 22px;}
+  .offer-list{text-align:left;max-width:380px;margin:0 auto 26px;}
+  .offer-list .row{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px dashed var(--line);}
+  .offer-list .row:last-child{border-bottom:none;}
+  .offer-list .free{background:var(--teal);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;flex:none;}
+  .offer-list .row span{font-size:15px;color:var(--ink);font-weight:500;}
+  .offer-list .row del{color:var(--mute);font-size:13px;}
+  .offer-note{font-size:13px;color:var(--mute);margin-top:8px;}
+  .offer-list .row span b{color:var(--coral);font-weight:800;}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:640px;margin:0 auto 32px;}
+  .pcard{border:1px solid var(--line);border-radius:18px;padding:28px 22px;background:var(--card);text-align:center;}
+  .pcard .ptag{font-size:12px;font-weight:700;color:#fff;padding:4px 14px;border-radius:20px;display:inline-block;margin-bottom:14px;}
+  .pcard.parent .ptag{background:#7ab800;}
+  .pcard.owner .ptag{background:#2A8FD8;}
+  .pcard .pbig{font-size:26px;font-weight:800;color:var(--ink);margin-bottom:10px;letter-spacing:-.02em;}
+  .pcard p{font-size:13.5px;color:var(--mute);line-height:1.55;}
+  @media(max-width:760px){.price-grid{grid-template-columns:1fr;}}
+
+  /* STEPS */
+  .steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .step3{text-align:center;padding:10px;}
+  .step3 .circle{width:54px;height:54px;border-radius:50%;background:var(--ink);color:#fff;font-family:var(--serif);font-size:20px;font-weight:600;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+  .step3 h4{font-size:16px;font-weight:700;margin-bottom:6px;}
+  .step3 p{font-size:14px;color:var(--mute);}
+
+  /* FORM */
+  .signup{background:var(--card);}
+  .form-box{max-width:560px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px;}
+  .form-box .field{margin-bottom:16px;}
+  .form-box label{display:block;font-size:13.5px;font-weight:700;margin-bottom:7px;color:var(--ink);}
+  .form-box input,.form-box textarea{width:100%;border:1px solid var(--line);border-radius:11px;padding:13px 15px;font-size:15px;font-family:var(--sans);background:#fff;color:var(--ink);}
+  .form-box input:focus,.form-box textarea:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(42,143,216,.13);}
+  .form-box textarea{resize:vertical;min-height:74px;}
+  .form-box .submit{width:100%;background:var(--coral);color:#fff;border:none;border-radius:30px;padding:16px;font-size:16.5px;font-weight:800;cursor:pointer;transition:.2s;margin-top:6px;font-family:var(--sans);}
+  .form-box .submit:hover{background:var(--coral-d);}
+  .alt-contact{text-align:center;margin-top:22px;font-size:14.5px;color:var(--ink-soft);}
+  .alt-contact a{color:var(--coral-d);font-weight:700;text-decoration:none;}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#fff;padding:40px 0 46px;text-align:center;}
+  footer .logo{justify-content:center;margin-bottom:14px;}
+  footer .amov{font-family:var(--serif);font-style:italic;color:#9aa5bd;font-size:14px;margin:14px 0 6px;}
+  footer .contact{font-size:13.5px;color:#aeb8cf;}
+  footer .contact a{color:#e8a87c;text-decoration:none;}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:760px){
+    .hero{padding:46px 0 54px;}
+    .hero h1{font-size:31px;}
+    .hero p.sub{font-size:16px;}
+    .sec{padding:52px 0;}
+    .sec h2{font-size:25px;}
+    .pain-grid,.feat-wrap,.why-grid,.steps3{grid-template-columns:1fr;}
+    .sol-hero,.offer-box,.form-box{padding:28px 22px;}
+    .btn{width:100%;justify-content:center;}
+    nav a.cta{padding:8px 14px;font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 200 200"><rect x="48" y="48" width="62" height="62" rx="17" fill="#3FA9F2"/><rect x="90" y="90" width="62" height="62" rx="17" fill="#8CD004"/></svg>
+      <div><span class="wm">이음</span> <span class="en">Ieum</span></div>
+    </div>
+    <a href="#signup" class="cta">사전 신청</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="badge-line"><span class="dot"></span> 2026 상반기 · 베타 파트너 학원 모집 중</div>
+    <h1>우리 학원만의 앱,<br>이제 <b>가질 수 있습니다</b></h1>
+    <p class="sub">출결 알림도, 수납 관리도, 학부모 문의 응대도 — 우리 학원 전용 앱 하나로. 이미 검증된 시스템을 우리 학원에 맞춰, 합리적인 비용으로 빠르게 시작합니다.</p>
+    <div class="hero-btns">
+      <a href="#signup" class="btn btn-primary">베타 파트너 신청하기 →</a>
+      <a href="demo.html" class="btn btn-ghost">직접 체험해보기 →</a>
+    </div>
+    <div class="hero-note">※ 현재 베타 준비 단계입니다. 사전 신청 학원에 한해 특별 혜택을 드립니다.</div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="sec pain">
+  <div class="wrap reveal">
+    <div class="kicker">이런 고민, 있으시죠</div>
+    <h2>학원 운영, 잡무에 치이고 계신가요</h2>
+    <p class="lead">가르치는 데 써야 할 시간이 자꾸 다른 데로 새어 나갑니다.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c84a30" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div><h4>학부모 문의 응대</h4><p>"오늘 우리 애 왔나요?" 같은 문의에 수업 중에도 카톡·전화를 놓을 수가 없어요.</p></div>
+      </div>
+      <div class="pain-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c84a30" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div><h4>출결 일일이 알림</h4><p>등·하원 때마다 학부모께 일일이 알려드리기엔 손이 너무 많이 가요.</p></div>
+      </div>
+      <div class="pain-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c84a30" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <div><h4>수납·미납 관리</h4><p>누가 냈고 누가 안 냈는지 매달 일일이 확인하고 독촉하는 게 여간 번거롭지 않아요.</p></div>
+      </div>
+      <div class="pain-card">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c84a30" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div><h4>맞춤 제작은 부담</h4><p>우리 학원 앱을 따로 만들려니 수백만 원. 작은 학원엔 엄두가 안 나요.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="sec" id="solution">
+  <div class="wrap reveal">
+    <div class="kicker">그래서, 이음</div>
+    <h2>학원과 가정 사이를,<br>끊기지 않게 잇습니다</h2>
+    <div class="sol-hero">
+      <div class="mark"><svg width="64" height="64" viewBox="0 0 200 200"><rect x="48" y="48" width="62" height="62" rx="17" fill="#3FA9F2"/><rect x="90" y="90" width="62" height="62" rx="17" fill="#8CD004"/></svg></div>
+      <h3>이음은 '우리 학원 전용 앱'입니다</h3>
+      <p>학원 로고와 이름을 단 전용 앱을 학부모님께 드리세요. 출결·공지·수납·문의가 앱 하나에 모이고, 반복되는 일은 자동으로 처리됩니다. 원장님은 가르치는 일에만 집중하세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec pain">
+  <div class="wrap reveal">
+    <div class="kicker">무엇이 되나요</div>
+    <h2>원장님도, 학부모님도 편하게</h2>
+    <p class="lead">한쪽은 일이 줄고, 한쪽은 안심이 늘어납니다.</p>
+    <div class="feat-wrap">
+      <div class="feat-col">
+        <span class="tag" style="background:#16213a">원장·강사용</span>
+        <ul>
+          <li><span class="chk">✓</span> 출결 체크 한 번이면 학부모께 자동 알림</li>
+          <li><span class="chk">✓</span> 수납·미납 한눈에, 결제까지 연동</li>
+          <li><span class="chk">✓</span> 자주 오는 문의는 AI가 자동 응대</li>
+          <li><span class="chk">✓</span> 공지·보강 일정 한 번에 전체 발송</li>
+          <li><span class="chk">✓</span> 학원 운영 현황 대시보드</li>
+        </ul>
+      </div>
+      <div class="feat-col">
+        <span class="tag" style="background:#e0654a">학부모용</span>
+        <ul>
+          <li><span class="chk">✓</span> 우리 아이 등·하원 알림을 바로 확인</li>
+          <li><span class="chk">✓</span> 진도·과제·시험 결과 한눈에</li>
+          <li><span class="chk">✓</span> 결제·영수증·공지를 앱에서</li>
+          <li><span class="chk">✓</span> 원장님께 1:1 문의</li>
+          <li><span class="chk">✓</span> 여러 학원을 앱 하나로 통합 관리</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="sec why">
+  <div class="wrap reveal">
+    <div class="kicker" style="color:#e8a87c">왜 이음인가</div>
+    <h2>검증된 시스템으로, 우리 학원답게</h2>
+    <p class="lead">기성 앱을 빌려 쓰는 게 아니라, '우리 학원 전용'으로 시작합니다.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="n">01</div><h4>전용 앱 감성</h4><p>학원 로고·색을 입힌 우리 학원만의 앱. 학부모께 깔아드리는 순간 브랜드가 됩니다.</p></div>
+      <div class="why-card"><div class="n">02</div><h4>합리적인 비용</h4><p>큰 초기 비용 없이, 작은 학원도 부담 없는 월 구독으로 시작해요.</p></div>
+      <div class="why-card"><div class="n">03</div><h4>빠른 시작</h4><p>앱스토어 설치 없이 링크 한 번으로. 신청 후 빠르게 받아보실 수 있습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="sec">
+  <div class="wrap reveal">
+    <div class="kicker">요금 안내</div>
+    <h2>학부모는 무료, 원장님은 부담 없이</h2>
+    <p class="lead">학생 수에 맞춘 월 구독이라, 작은 학원은 작게 시작해요.</p>
+    <div class="price-grid">
+      <div class="pcard parent">
+        <div class="ptag">학부모</div>
+        <div class="pbig">평생 무료</div>
+        <p>우리 학원 전용 앱을 학부모님께 무료로 드려요. 설치 부담이 없어 잘 쓰십니다.</p>
+      </div>
+      <div class="pcard owner">
+        <div class="ptag">원장님</div>
+        <div class="pbig">학생당 월 1,500원</div>
+        <p>최소 월 4만원부터. 쓰는 만큼만 내는 구조라 작은 학원도 부담이 없어요. 알림톡 비용까지 다 포함이에요.</p>
+      </div>
+    </div>
+    <div class="offer-box">
+      <div class="offer-tag">베타 파트너 한정</div>
+      <h3>먼저 시작하는 학원의 혜택</h3>
+      <div class="offer-list">
+        <div class="row"><span class="free">고정</span><span>베타 특가로 시작 → 정식 요금이 올라도 <b>평생 그 가격</b></span></div>
+        <div class="row"><span class="free">면제</span><span>전용 앱 셋업비 면제</span></div>
+        <div class="row"><span class="free">우선</span><span>원하는 기능 우선 반영</span></div>
+      </div>
+      <a href="#signup" class="btn btn-primary" style="display:inline-flex">베타 특가로 신청하기 →</a>
+      <p class="offer-note">신청은 무료입니다. 학원 규모에 맞는 정확한 요금은 상담 때 안내드려요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="sec pain">
+  <div class="wrap reveal">
+    <div class="kicker">어떻게 진행되나요</div>
+    <h2>신청은 3분, 시작은 간단하게</h2>
+    <div class="steps3">
+      <div class="step3"><div class="circle">1</div><h4>사전 신청</h4><p>아래 폼에 학원 정보를 남겨주세요. 비용 없이 신청만.</p></div>
+      <div class="step3"><div class="circle">2</div><h4>상담 · 준비</h4><p>연락드려 필요한 기능과 로고·색을 함께 정합니다.</p></div>
+      <div class="step3"><div class="circle">3</div><h4>전용 앱 전달</h4><p>준비되는 대로 우리 학원 전용 앱을 받아보세요.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP FORM -->
+<section class="sec signup" id="signup">
+  <div class="wrap reveal">
+    <div class="kicker">사전 신청</div>
+    <h2>베타 파트너로 함께해요</h2>
+    <p class="lead">정보를 남겨주시면 빠르게 연락드리겠습니다. 신청은 무료입니다.</p>
+    <div class="form-box">
+      <div class="field"><label>학원·교습소 이름</label><input id="f_name" type="text" placeholder="예: 이음영어학원"></div>
+      <div class="field"><label>원장님 성함</label><input id="f_owner" type="text" placeholder="예: 홍길동"></div>
+      <div class="field"><label>연락처</label><input id="f_phone" type="tel" placeholder="예: 010-1234-5678"></div>
+      <div class="field"><label>관심 있는 기능 / 문의 (선택)</label><textarea id="f_msg" placeholder="예: 출결 알림과 수납 관리가 제일 필요해요"></textarea></div>
+      <button class="submit" onclick="submitForm()">베타 파트너 신청하기</button>
+      <div class="alt-contact">전화·카톡이 편하시면 → <a href="mailto:hello@theamov.com">hello@theamov.com</a> 으로 연락주셔도 됩니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="logo">
+      <svg width="28" height="28" viewBox="0 0 200 200"><rect x="48" y="48" width="62" height="62" rx="17" fill="#3FA9F2"/><rect x="90" y="90" width="62" height="62" rx="17" fill="#8CD004"/></svg>
+      <div><span class="wm">이음</span> <span class="en">Ieum</span></div>
+    </div>
+    <div class="amov">Love Moves Everything</div>
+    <div class="contact">AMOV · 문의 <a href="mailto:hello@theamov.com">hello@theamov.com</a></div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // form -> mailto
+  function submitForm(){
+    const name = (document.getElementById('f_name').value||'').trim();
+    const owner = (document.getElementById('f_owner').value||'').trim();
+    const phone = (document.getElementById('f_phone').value||'').trim();
+    const msg = (document.getElementById('f_msg').value||'').trim();
+    if(!name || !phone){ alert('학원 이름과 연락처는 꼭 남겨주세요.'); return; }
+    const body =
+      '이음 베타 파트너 신청\\n\\n'+
+      '학원·교습소: '+name+'\\n'+
+      '원장님 성함: '+(owner||'-')+'\\n'+
+      '연락처: '+phone+'\\n'+
+      '문의/관심 기능: '+(msg||'-');
+    window.location.href = 'mailto:hello@theamov.com?subject='+encodeURIComponent('[이음] 베타 파트너 신청 - '+name)+'&body='+encodeURIComponent(body);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이음 · 시연 — 출결 · 공지 · 수납</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#3FA9F2; --blue-d:#2589d6; --green:#8CD004; --green-d:#6ba800;
+    --navy:#173050; --ink:#16263f; --orange:#f5963f; --orange-d:#e07c1f;
+    --mute:#8a93a0; --line:#e3e7ec; --kakao:#fae100;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{font-family:'Pretendard',sans-serif;background:linear-gradient(170deg,#f4f6f8,#e7ebf0);color:var(--ink);padding:30px 16px 56px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:920px;margin:0 auto;}
+  .head{text-align:center;margin-bottom:26px;}
+  .brandrow{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;}
+  .brandrow .wm{font-family:'Noto Serif KR',serif;font-weight:700;font-size:20px;color:var(--navy);letter-spacing:-.02em;}
+  .head h1{font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.3;margin-bottom:10px;}
+  .head h1 .hl{color:var(--blue-d);}
+  .head p{font-size:14.5px;color:var(--mute);line-height:1.6;}
+  .head .tabs-hint{margin-top:8px;font-size:13px;color:var(--blue-d);font-weight:600;}
+
+  .stage{display:flex;gap:28px;justify-content:center;align-items:flex-start;flex-wrap:wrap;}
+  .col{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .col .role{font-size:13px;font-weight:700;color:var(--mute);}
+  .col .role b{color:var(--navy);}
+
+  .phone{width:300px;height:610px;background:#0c1422;border-radius:42px;padding:11px;box-shadow:0 30px 60px -22px rgba(22,38,63,.5);position:relative;}
+  .screen{width:100%;height:100%;background:#fff;border-radius:32px;overflow:hidden;display:flex;flex-direction:column;position:relative;}
+  .notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:120px;height:26px;background:#0c1422;border-radius:0 0 16px 16px;z-index:30;}
+
+  .t-top{background:#fff;padding:30px 18px 13px;border-bottom:1px solid var(--line);flex:none;}
+  .t-school{display:flex;align-items:center;gap:9px;}
+  .t-logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--green));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;}
+  .t-name{font-weight:800;font-size:15px;}
+  .t-date{font-size:11.5px;color:var(--mute);margin-top:1px;}
+
+  .content{flex:1;overflow-y:auto;}
+  .pane{display:none;padding:14px 14px 10px;}
+  .pane.on{display:block;}
+  .pane-title{font-size:13px;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;align-items:center;padding:0 4px 10px;}
+  .pane-title .cnt{font-size:11.5px;font-weight:700;}
+
+  /* attendance */
+  .stu{display:flex;align-items:center;gap:11px;padding:11px 10px;border-radius:13px;margin-bottom:7px;background:#f7f9fb;transition:.25s;}
+  .stu.done{background:#f1f9e3;}
+  .stu .av{width:38px;height:38px;border-radius:50%;background:#dde6ef;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:none;}
+  .stu.done .av{background:var(--green);color:#fff;}
+  .stu .info{flex:1;min-width:0;}
+  .stu .nm{font-weight:700;font-size:14px;}
+  .stu .sub{font-size:11px;color:var(--mute);margin-top:1px;}
+  .stu .sub.ok{color:var(--green-d);font-weight:600;}
+  .btn-s{border:none;color:#fff;font-family:inherit;font-weight:700;font-size:12.5px;padding:8px 14px;border-radius:20px;cursor:pointer;flex:none;transition:.2s;}
+  .btn-blue{background:var(--blue);} .btn-blue:hover{background:var(--blue-d);}
+  .btn-orange{background:var(--orange);} .btn-orange:hover{background:var(--orange-d);}
+  .btn-done{background:#e9eef3 !important;color:var(--mute) !important;cursor:default;pointer-events:none;}
+  .pay .btns{display:flex;gap:5px;flex:none;}
+  .btn-mini{border:none;color:#fff;font-family:inherit;font-weight:700;font-size:11px;padding:7px 11px;border-radius:16px;cursor:pointer;transition:.2s;}
+  .btn-green{background:var(--green-d);} .btn-green:hover{background:#5a9200;}
+  .btn-graybtn{background:#e9eef3;color:var(--mute);pointer-events:none;}
+  .paydone{font-size:11.5px;color:var(--green-d);font-weight:700;}
+
+  /* notice */
+  .notice-lead{font-size:12px;color:var(--mute);padding:0 4px 12px;line-height:1.5;}
+  .ntpl{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:13px;padding:13px 14px;margin-bottom:9px;font-family:inherit;font-size:13px;color:var(--ink);cursor:pointer;transition:.15s;line-height:1.4;}
+  .ntpl:hover{border-color:var(--blue);background:#f3f9ff;}
+  .ntpl .send{display:block;font-size:11px;color:var(--blue-d);font-weight:700;margin-top:5px;}
+
+  /* payment */
+  .pay{display:flex;align-items:center;gap:10px;padding:11px 10px;border-radius:13px;margin-bottom:7px;background:#fff8f1;transition:.25s;}
+  .pay.sent{background:#f2f4f6;}
+  .pay .av{width:36px;height:36px;border-radius:50%;background:#fbe2c8;color:var(--orange-d);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:none;}
+  .pay.sent .av{background:#dde2e8;color:var(--mute);}
+  .pay .info{flex:1;min-width:0;}
+  .pay .nm{font-weight:700;font-size:13.5px;}
+  .pay .amt{font-size:11.5px;color:var(--orange-d);font-weight:700;margin-top:1px;}
+  .pay.sent .amt{color:var(--mute);}
+
+  .t-tab{display:flex;border-top:1px solid var(--line);background:#fff;flex:none;}
+  .t-tab button{flex:1;border:none;background:none;font-family:inherit;padding:9px 0 13px;font-size:10.5px;color:var(--mute);cursor:pointer;}
+  .t-tab button.on{color:var(--blue-d);font-weight:700;}
+  .t-tab .ic{font-size:16px;display:block;margin-bottom:3px;}
+
+  /* parent kakao */
+  .k-top{background:var(--kakao);padding:30px 16px 12px;display:flex;align-items:center;gap:9px;flex:none;}
+  .k-top .klogo{width:30px;height:30px;border-radius:9px;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--navy);}
+  .k-top .knm{font-weight:800;font-size:14px;color:#3a2e00;}
+  .k-top .ksub{font-size:10.5px;color:#7a6a00;}
+  .k-body{flex:1;overflow-y:auto;background:#b2c7d9;padding:16px 14px;display:flex;flex-direction:column;gap:11px;}
+  .k-empty{margin:auto;text-align:center;color:#5a7286;font-size:12.5px;line-height:1.6;padding:0 20px;}
+  .k-msg{background:#fff;border-radius:4px 16px 16px 16px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.08);max-width:232px;animation:pop .4s cubic-bezier(.2,.8,.3,1.2);}
+  @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.96);}to{opacity:1;transform:none;}}
+  .k-msg .kh{color:#fff;font-size:11px;font-weight:700;padding:8px 13px;display:flex;align-items:center;gap:6px;}
+  .kh-attend{background:var(--green-d);} .kh-notice{background:var(--blue-d);} .kh-pay{background:var(--orange-d);} .kh-receipt{background:#1f6f6b;}
+  .k-msg .kc{padding:11px 13px;font-size:12.5px;line-height:1.55;color:var(--ink);}
+  .k-msg .kc b{color:var(--navy);}
+  .k-msg .kt{font-size:10px;color:var(--mute);padding:0 13px 10px;}
+
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;font-size:13.5px;font-weight:600;padding:13px 22px;border-radius:30px;box-shadow:0 16px 36px -10px rgba(22,38,63,.6);opacity:0;pointer-events:none;transition:.3s;z-index:100;display:flex;align-items:center;gap:9px;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  .toast .tc{color:var(--green);font-weight:800;}
+
+  .foot{text-align:center;margin-top:28px;}
+  .foot p{font-size:14px;color:var(--navy);font-weight:600;line-height:1.6;}
+  .foot .reset{margin-top:14px;background:#fff;border:1px solid var(--line);color:var(--mute);font-family:inherit;font-size:13px;font-weight:600;padding:9px 18px;border-radius:22px;cursor:pointer;}
+  .foot .reset:hover{border-color:var(--blue);color:var(--blue-d);}
+  @media(max-width:660px){.stage{gap:34px;}.head h1{font-size:20px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div class="brandrow">
+      <svg width="30" height="30" viewBox="0 0 200 200"><rect x="48" y="48" width="62" height="62" rx="17" fill="#3FA9F2"/><rect x="90" y="90" width="62" height="62" rx="17" fill="#8CD004"/></svg>
+      <span class="wm">이음</span>
+    </div>
+    <h1>출결 · 공지 · 수납 — 원장님은 <span class="hl">버튼만</span>, 나머진 자동</h1>
+    <p>아래 학원 화면에서 직접 눌러보세요. 학부모님 카카오톡으로 바로 도착합니다.</p>
+    <p class="tabs-hint">↓ 하단 탭(출결 · 공지 · 수납)을 눌러 세 기능을 다 해보세요</p>
+  </div>
+
+  <div class="stage">
+    <!-- TEACHER -->
+    <div class="col">
+      <div class="role"><b>원장님</b> 화면</div>
+      <div class="phone"><div class="notch"></div><div class="screen">
+        <div class="t-top">
+          <div class="t-school">
+            <div class="t-logo">햇</div>
+            <div><div class="t-name">햇살영어학원</div><div class="t-date" id="today">오늘</div></div>
+          </div>
+        </div>
+        <div class="content">
+          <!-- 출결 -->
+          <div class="pane on" id="pane-attend">
+            <div class="pane-title">오늘 출결 <span class="cnt" style="color:var(--green-d)"><span id="doneN">0</span>/5 등원</span></div>
+            <div id="list"></div>
+          </div>
+          <!-- 공지 -->
+          <div class="pane" id="pane-notice">
+            <div class="pane-title">공지 보내기 <span class="cnt" style="color:var(--blue-d)">학부모 5명</span></div>
+            <div class="notice-lead">누르면 전체 학부모님께 한 번에 발송돼요. 직접 쓰실 필요도 없어요.</div>
+            <button class="ntpl" onclick="sendNotice('오늘은 정상 수업합니다. 안전히 등원해 주세요 😊')">오늘은 정상 수업합니다 😊<span class="send">▸ 전체 발송</span></button>
+            <button class="ntpl" onclick="sendNotice('이번 주 금요일은 학원 휴원입니다. 참고 부탁드립니다.')">이번 주 금요일 휴원 안내<span class="send">▸ 전체 발송</span></button>
+            <button class="ntpl" onclick="sendNotice('폭설로 오늘 수업이 30분 늦게 시작합니다.')">폭설 — 30분 늦게 시작<span class="send">▸ 전체 발송</span></button>
+          </div>
+          <!-- 수납 -->
+          <div class="pane" id="pane-pay">
+            <div class="pane-title">이번 달 미납 <span class="cnt" style="color:var(--orange-d)"><span id="payLeft">3</span>명</span></div>
+            <div class="notice-lead">“안내”는 납부 안내 톡을, 입금 확인되면 “완료”를 누르세요. 영수증까지 자동으로 갑니다.</div>
+            <div id="payList"></div>
+          </div>
+        </div>
+        <div class="t-tab">
+          <button class="on" id="tab-attend" onclick="showTab('attend')"><span class="ic">✓</span>출결</button>
+          <button id="tab-notice" onclick="showTab('notice')"><span class="ic">📢</span>공지</button>
+          <button id="tab-pay" onclick="showTab('pay')"><span class="ic">💳</span>수납</button>
+        </div>
+      </div></div>
+    </div>
+
+    <!-- PARENT -->
+    <div class="col">
+      <div class="role"><b>학부모</b> 카카오톡</div>
+      <div class="phone"><div class="notch"></div><div class="screen">
+        <div class="k-top">
+          <div class="klogo">햇</div>
+          <div><div class="knm">햇살영어학원</div><div class="ksub">알림톡</div></div>
+        </div>
+        <div class="k-body" id="kbody">
+          <div class="k-empty" id="kempty">왼쪽 학원 화면에서 무언가 하면<br>여기로 알림톡이 도착해요 📩</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p>"출석 체크, 공지, 수납 안내 — 원장님은 버튼만 누르세요. 전부 자동으로 갑니다."</p>
+    <button class="reset" onclick="resetDemo()">처음부터 다시 보기</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span class="tc">✓</span> <span id="toastTxt"></span></div>
+
+<script>
+  const students=[
+    {n:'김민준',g:'어머니'},
+    {n:'이서연',g:'어머니'},
+    {n:'박지호',g:'아버지'},
+    {n:'최수아',g:'어머니'},
+    {n:'정우진',g:'어머니'},
+  ];
+  const unpaid=[
+    {n:'김민준',g:'어머니',amt:'25만원'},
+    {n:'박지호',g:'아버지',amt:'25만원'},
+    {n:'정우진',g:'어머니',amt:'30만원'},
+  ];
+  let done=0;
+  const d=new Date();
+  const days=['일','월','화','수','목','금','토'];
+  document.getElementById('today').textContent=`${d.getMonth()+1}월 ${d.getDate()}일 (${days[d.getDay()]})`;
+  function nowTime(){return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;}
+
+  const kbody=document.getElementById('kbody');
+  let kempty=document.getElementById('kempty');
+
+  function showTab(t){
+    ['attend','notice','pay'].forEach(x=>{
+      document.getElementById('pane-'+x).classList.toggle('on',x===t);
+      document.getElementById('tab-'+x).classList.toggle('on',x===t);
+    });
+  }
+
+  function renderAttend(){
+    const list=document.getElementById('list'); list.innerHTML='';
+    students.forEach((s,i)=>{
+      const row=document.createElement('div');
+      row.className='stu'+(s.done?' done':'');
+      row.innerHTML=`<div class="av">${s.n[0]}</div>
+        <div class="info"><div class="nm">${s.n}</div>
+        <div class="sub ${s.done?'ok':''}">${s.done?'✓ '+s.time+' 등원 · 알림 전송됨':'등원 전'}</div></div>
+        <button class="btn-s ${s.done?'btn-done':'btn-blue'}" onclick="checkAttend(${i})">${s.done?'완료':'등원'}</button>`;
+      list.appendChild(row);
+    });
+    document.getElementById('doneN').textContent=done;
+  }
+  function renderPay(){
+    const pl=document.getElementById('payList'); pl.innerHTML='';
+    let left=0;
+    unpaid.forEach((u,i)=>{
+      if(!u.paid) left++;
+      const row=document.createElement('div');
+      row.className='pay'+(u.paid?' sent':'');
+      let status, btns;
+      if(u.paid){
+        status='✓ 납부 완료 · 영수증 발송';
+        btns='<span class="paydone">완료</span>';
+      } else {
+        status='미납 '+u.amt+(u.sent?' · 안내 보냄':'');
+        btns=`<button class="btn-mini ${u.sent?'btn-graybtn':'btn-orange'}" onclick="sendPay(${i})">${u.sent?'안내됨':'안내'}</button>`
+            +`<button class="btn-mini btn-green" onclick="confirmPay(${i})">완료</button>`;
+      }
+      row.innerHTML=`<div class="av">${u.n[0]}</div>
+        <div class="info"><div class="nm">${u.n}</div><div class="amt">${status}</div></div>
+        <div class="btns">${btns}</div>`;
+      pl.appendChild(row);
+    });
+    document.getElementById('payLeft').textContent=left;
+  }
+
+  function checkAttend(i){
+    const s=students[i]; if(s.done) return;
+    s.done=true; s.time=nowTime(); done++;
+    renderAttend();
+    pushKakao('attend','등원 알림',`<b>${s.n}</b> 학생이 <b>${s.time}</b>에<br>안전하게 등원했습니다. 😊`);
+    toast(`${s.n} ${s.g}님께 등원 알림 전송됨`);
+  }
+  function sendNotice(text){
+    pushKakao('notice','공지',text);
+    toast(`학부모 5명에게 공지 발송됨`);
+  }
+  function sendPay(i){
+    const u=unpaid[i]; if(u.sent) return;
+    u.sent=true; renderPay();
+    pushKakao('pay','수강료 납부 안내',`<b>${u.n}</b> 학생 이번 달 수강료<br><b>${u.amt}</b> 납부 안내드립니다.<br>계좌: 국민 123-45-6789`);
+    toast(`${u.n} ${u.g}님께 납부 안내 전송됨`);
+  }
+  function confirmPay(i){
+    const u=unpaid[i]; if(u.paid) return;
+    u.paid=true; renderPay();
+    pushKakao('receipt','납부 확인',`<b>${u.n}</b> 학생 수강료 <b>${u.amt}</b><br>납부가 확인되었습니다. 감사합니다 🧾`);
+    toast(`${u.n} 납부 완료 · 영수증 자동 발송`);
+  }
+
+  function pushKakao(type,title,body){
+    if(kempty){kempty.style.display='none';}
+    const m=document.createElement('div'); m.className='k-msg';
+    m.innerHTML=`<div class="kh kh-${type}">햇살영어학원 · ${title}</div>
+      <div class="kc">${body}</div><div class="kt">${nowTime()}</div>`;
+    kbody.appendChild(m); kbody.scrollTop=kbody.scrollHeight;
+  }
+
+  let tt;
+  function toast(t){
+    document.getElementById('toastTxt').textContent=t;
+    const el=document.getElementById('toast'); el.classList.add('show');
+    clearTimeout(tt); tt=setTimeout(()=>el.classList.remove('show'),1900);
+  }
+
+  function resetDemo(){
+    students.forEach(s=>{s.done=false;s.time=null;}); done=0;
+    unpaid.forEach(u=>{u.sent=false;u.paid=false;});
+    kbody.innerHTML='';
+    const e=document.createElement('div'); e.className='k-empty';
+    e.innerHTML='왼쪽 학원 화면에서 무언가 하면<br>여기로 알림톡이 도착해요 📩';
+    kbody.appendChild(e); kempty=e;
+    renderAttend(); renderPay(); showTab('attend');
+  }
+
+  renderAttend(); renderPay();
+</script>
+</body>
+</html>
