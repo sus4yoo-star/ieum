@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#173050">
+<title>이음 · 우리 학원 관리</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#3FA9F2; --blue-d:#2589d6; --green:#8CD004; --green-d:#6ba800;
+    --navy:#173050; --ink:#16263f; --orange:#f5963f; --orange-d:#e07c1f;
+    --red:#e5484d; --mute:#8a93a0; --line:#e6eaef; --bg:#f4f6f8; --card:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;}
+  body{font-family:'Pretendard',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow:hidden;}
+  button,input,select,textarea{font-family:inherit;}
+  .app{max-width:520px;margin:0 auto;height:100%;display:flex;flex-direction:column;background:var(--bg);position:relative;box-shadow:0 0 40px rgba(22,38,63,.06);}
+
+  /* header */
+  .top{background:var(--navy);color:#fff;padding:calc(env(safe-area-inset-top) + 14px) 18px 14px;flex:none;display:flex;align-items:center;justify-content:space-between;}
+  .top .brand{display:flex;align-items:center;gap:9px;}
+  .top .mk{display:inline-flex;} .top .mk span{width:13px;height:13px;border-radius:4px;display:block;}
+  .top .mk .b{background:var(--blue);} .top .mk .g{background:var(--green);align-self:flex-end;}
+  .top .wm{font-family:'Noto Serif KR',serif;font-weight:700;font-size:17px;letter-spacing:-.02em;}
+  .top .sch{font-size:12px;color:#aebccb;margin-left:2px;}
+  .top .gear{background:rgba(255,255,255,.12);border:none;color:#fff;width:34px;height:34px;border-radius:10px;font-size:16px;cursor:pointer;}
+
+  .body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px 96px;}
+  .pane{display:none;} .pane.on{display:block;animation:fade .2s;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+
+  .panehead{display:flex;justify-content:space-between;align-items:baseline;padding:4px 4px 12px;}
+  .panehead h2{font-size:17px;font-weight:800;letter-spacing:-.02em;}
+  .panehead .meta{font-size:12.5px;font-weight:700;color:var(--mute);}
+  .panehead .meta b{color:var(--green-d);}
+
+  /* cards / rows */
+  .row{display:flex;align-items:center;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 12px;margin-bottom:8px;}
+  .av{width:40px;height:40px;border-radius:50%;background:#e3eaf2;color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex:none;}
+  .row.done .av{background:var(--green);color:#fff;}
+  .row.out .av{background:var(--blue);color:#fff;}
+  .info{flex:1;min-width:0;}
+  .info .nm{font-weight:700;font-size:14.5px;}
+  .info .sub{font-size:11.5px;color:var(--mute);margin-top:2px;}
+  .info .sub.ok{color:var(--green-d);font-weight:600;}
+  .info .sub.warn{color:var(--orange-d);font-weight:600;}
+
+  .btn{border:none;color:#fff;font-weight:700;font-size:12.5px;padding:9px 15px;border-radius:11px;cursor:pointer;flex:none;transition:.15s;}
+  .btn:active{transform:scale(.94);}
+  .b-blue{background:var(--blue);} .b-green{background:var(--green-d);} .b-orange{background:var(--orange);} .b-navy{background:var(--navy);}
+  .b-ghost{background:#eef2f6;color:var(--mute);} .b-line{background:#fff;border:1.5px solid var(--line);color:var(--navy);}
+  .b-done{background:#eef2f6;color:var(--mute);pointer-events:none;}
+  .btnset{display:flex;gap:6px;flex:none;}
+
+  .primary{width:100%;background:var(--blue);color:#fff;border:none;padding:15px;border-radius:14px;font-size:15px;font-weight:800;cursor:pointer;margin-top:6px;box-shadow:0 8px 18px -8px var(--blue);}
+  .primary:active{transform:scale(.99);}
+  .primary.green{background:var(--green-d);box-shadow:0 8px 18px -8px var(--green-d);}
+
+  .empty{text-align:center;color:var(--mute);font-size:13px;line-height:1.7;padding:44px 20px;}
+  .empty .em{font-size:30px;display:block;margin-bottom:10px;}
+
+  /* notice templates */
+  .tpl{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:13px;padding:13px 14px;margin-bottom:8px;font-size:13.5px;color:var(--ink);cursor:pointer;line-height:1.45;transition:.15s;}
+  .tpl:active{border-color:var(--blue);background:#f3f9ff;}
+  .tpl .go{display:block;font-size:11.5px;color:var(--blue-d);font-weight:700;margin-top:5px;}
+  textarea.free{width:100%;border:1.5px solid var(--line);border-radius:13px;padding:13px;font-size:14px;resize:vertical;min-height:80px;margin-bottom:8px;line-height:1.5;}
+  textarea.free:focus{outline:none;border-color:var(--blue);}
+
+  .lead{font-size:12.5px;color:var(--mute);padding:0 4px 12px;line-height:1.55;}
+  .seg{display:flex;gap:6px;padding:0 2px 12px;}
+  .seg button{flex:1;background:#eef2f6;border:none;padding:8px;border-radius:10px;font-size:12.5px;font-weight:700;color:var(--mute);cursor:pointer;}
+  .seg button.on{background:var(--navy);color:#fff;}
+
+  /* students management */
+  .addbar{display:flex;gap:7px;margin-bottom:12px;}
+  .field{margin-bottom:10px;}
+  .field label{display:block;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:5px;padding-left:2px;}
+  .field input,.field select{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px 13px;font-size:14.5px;color:var(--ink);background:#fff;}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--blue);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  .tiny{background:none;border:none;color:var(--red);font-size:12px;font-weight:700;cursor:pointer;padding:6px;}
+
+  /* tabbar */
+  .tabs{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom);}
+  .tabs button{flex:1;border:none;background:none;padding:9px 0 11px;font-size:10.5px;color:var(--mute);cursor:pointer;font-weight:600;}
+  .tabs button.on{color:var(--blue-d);}
+  .tabs .ic{font-size:19px;display:block;margin-bottom:3px;line-height:1;}
+  .tabs button.on .ic{filter:none;}
+  .badge{display:inline-block;min-width:16px;height:16px;background:var(--orange);color:#fff;font-size:10px;font-weight:800;border-radius:9px;line-height:16px;padding:0 4px;margin-left:3px;vertical-align:top;}
+
+  /* modal / sheet */
+  .mask{position:fixed;inset:0;background:rgba(15,25,40,.5);opacity:0;pointer-events:none;transition:.22s;z-index:50;display:flex;align-items:flex-end;justify-content:center;}
+  .mask.show{opacity:1;pointer-events:auto;}
+  .sheet{width:100%;max-width:520px;background:#fff;border-radius:22px 22px 0 0;padding:8px 18px calc(env(safe-area-inset-bottom) + 20px);transform:translateY(100%);transition:.28s cubic-bezier(.2,.8,.25,1);max-height:88vh;overflow-y:auto;}
+  .mask.show .sheet{transform:none;}
+  .grip{width:38px;height:4px;background:#dfe4ea;border-radius:3px;margin:8px auto 14px;}
+  .sheet h3{font-size:16px;font-weight:800;margin-bottom:4px;}
+  .sheet .sh-sub{font-size:12.5px;color:var(--mute);margin-bottom:14px;line-height:1.5;}
+  .msgbox{background:#f5f8fb;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:14px;line-height:1.6;color:var(--ink);white-space:pre-wrap;margin-bottom:8px;}
+  .recips{font-size:12px;color:var(--mute);margin-bottom:14px;padding-left:2px;}
+  .recips b{color:var(--navy);}
+  .sheet-btns{display:flex;flex-direction:column;gap:9px;}
+  .sheet-btns .primary{margin-top:0;}
+  .hintbox{background:#fffaf0;border:1px solid #f5e2c0;border-radius:12px;padding:11px 13px;font-size:12px;color:#8a5a12;line-height:1.55;margin-top:12px;}
+
+  /* toast */
+  .toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--navy);color:#fff;font-size:13.5px;font-weight:600;padding:12px 20px;border-radius:26px;box-shadow:0 14px 30px -10px rgba(22,38,63,.6);opacity:0;pointer-events:none;transition:.28s;z-index:80;display:flex;gap:8px;align-items:center;}
+  .toast.show{opacity:1;transform:translateX(-50%);}
+  .toast .c{color:var(--green);font-weight:800;}
+
+  /* onboarding */
+  .onb{position:absolute;inset:0;background:var(--bg);z-index:40;display:flex;flex-direction:column;padding:0 22px;overflow-y:auto;}
+  .onb.hide{display:none;}
+  .onb-hero{text-align:center;padding:min(12vh,80px) 0 26px;}
+  .onb-hero .mk{display:inline-flex;margin-bottom:14px;} .onb-hero .mk span{width:22px;height:22px;border-radius:7px;display:block;}
+  .onb-hero .mk .b{background:var(--blue);} .onb-hero .mk .g{background:var(--green);align-self:flex-end;}
+  .onb-hero h1{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.35;}
+  .onb-hero p{font-size:14px;color:var(--mute);margin-top:9px;line-height:1.6;}
+  .card-box{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 16px;margin-bottom:12px;}
+  .link{background:none;border:none;color:var(--blue-d);font-size:13px;font-weight:700;cursor:pointer;padding:10px;display:block;margin:0 auto;}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand">
+      <span class="mk"><span class="b"></span><span class="g"></span></span>
+      <div><span class="wm">이음</span> <span class="sch" id="schName"></span></div>
+    </div>
+    <button class="gear" onclick="openSettings()">⚙</button>
+  </div>
+
+  <div class="body">
+    <!-- 출결 -->
+    <div class="pane on" id="p-attend">
+      <div class="panehead"><h2>오늘 출결</h2><div class="meta"><b id="inCnt">0</b>/<span id="totCnt">0</span> 등원 · <span id="todayLbl"></span></div></div>
+      <div id="attendList"></div>
+    </div>
+
+    <!-- 공지 -->
+    <div class="pane" id="p-notice">
+      <div class="panehead"><h2>공지 보내기</h2><div class="meta">학부모 <span id="noticeCnt">0</span>명</div></div>
+      <p class="lead">템플릿을 누르거나 직접 써서 전체 학부모님께 한 번에 보내세요.</p>
+      <button class="tpl" onclick="composeNotice('오늘은 정상 수업합니다. 안전히 등원해 주세요 😊')">오늘은 정상 수업합니다 😊<span class="go">▸ 전체 발송</span></button>
+      <button class="tpl" onclick="composeNotice('이번 주 금요일은 학원 휴원입니다. 참고 부탁드립니다.')">이번 주 금요일 휴원 안내<span class="go">▸ 전체 발송</span></button>
+      <button class="tpl" onclick="composeNotice('폭설로 오늘 수업이 30분 늦게 시작합니다. 안전 유의해 주세요.')">폭설 — 30분 늦게 시작<span class="go">▸ 전체 발송</span></button>
+      <textarea class="free" id="noticeFree" placeholder="직접 공지를 입력하세요…"></textarea>
+      <button class="primary" onclick="composeFreeNotice()">직접 쓴 공지 전체 발송</button>
+    </div>
+
+    <!-- 수납 -->
+    <div class="pane" id="p-pay">
+      <div class="panehead"><h2 id="payMonthTitle">이번 달 수납</h2><div class="meta">미납 <b id="unpaidCnt" style="color:var(--orange-d)">0</b>명</div></div>
+      <p class="lead">“안내”는 납부 안내를, 입금 확인되면 “완료”를 누르세요. 완료 시 영수증 문구가 만들어집니다.</p>
+      <div id="payList"></div>
+    </div>
+
+    <!-- 학생 -->
+    <div class="pane" id="p-students">
+      <div class="panehead"><h2>학생 관리</h2><div class="meta"><span id="stuCnt">0</span>명</div></div>
+      <button class="primary" style="margin-bottom:14px" onclick="openStudentForm()">+ 학생 추가</button>
+      <div id="studentList"></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="on" id="t-attend" onclick="tab('attend')"><span class="ic">✓</span>출결</button>
+    <button id="t-notice" onclick="tab('notice')"><span class="ic">📢</span>공지</button>
+    <button id="t-pay" onclick="tab('pay')"><span class="ic">💳</span>수납<span id="payBadge"></span></button>
+    <button id="t-students" onclick="tab('students')"><span class="ic">👥</span>학생</button>
+  </div>
+
+  <!-- onboarding -->
+  <div class="onb" id="onb">
+    <div class="onb-hero">
+      <span class="mk"><span class="b"></span><span class="g"></span></span>
+      <h1>우리 학원 전용 관리 앱<br>이음을 시작합니다</h1>
+      <p>학원 이름만 넣으면 바로 시작해요.<br>원장님은 버튼만, 나머지는 이음이.</p>
+    </div>
+    <div class="card-box">
+      <div class="field"><label>학원 이름</label><input id="onbSchool" placeholder="예) 햇살영어학원" autocomplete="off"></div>
+      <button class="primary" onclick="finishOnb()">시작하기</button>
+      <button class="link" onclick="seedDemo()">샘플 학생으로 먼저 둘러보기</button>
+    </div>
+  </div>
+</div>
+
+<!-- send sheet -->
+<div class="mask" id="mask" onclick="if(event.target===this)closeSheet()">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<div class="toast" id="toast"><span class="c">✓</span><span id="toastTxt"></span></div>
+
+<script>
+/* ---------- state ---------- */
+const KEY='ieum_state_v1';
+let S=load();
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||fresh();}catch(e){return fresh();}}
+function fresh(){return{academy:null,students:[],attendance:{},payments:{},log:[]};}
+function save(){localStorage.setItem(KEY,JSON.stringify(S));}
+
+/* ---------- date ---------- */
+const DAYS=['일','월','화','수','목','금','토'];
+function todayKey(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function monthKey(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;}
+function nowHM(){const d=new Date();return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;}
+function todayLabel(){const d=new Date();return `${d.getMonth()+1}월 ${d.getDate()}일 (${DAYS[d.getDay()]})`;}
+function monthLabel(){const d=new Date();return `${d.getFullYear()}년 ${d.getMonth()+1}월`;}
+function won(n){return (n||0).toLocaleString('ko-KR')+'원';}
+
+/* ---------- init ---------- */
+function boot(){
+  if(!S.academy){document.getElementById('onb').classList.remove('hide');return;}
+  document.getElementById('onb').classList.add('hide');
+  document.getElementById('schName').textContent=S.academy.name;
+  document.getElementById('todayLbl').textContent=todayLabel();
+  document.getElementById('payMonthTitle').textContent=monthLabel()+' 수납';
+  renderAll();
+}
+function renderAll(){renderAttend();renderNotice();renderPay();renderStudents();}
+
+/* ---------- onboarding ---------- */
+function finishOnb(){
+  const v=document.getElementById('onbSchool').value.trim();
+  if(!v){toast('학원 이름을 넣어주세요');return;}
+  S.academy={name:v};save();boot();tab('students');
+  setTimeout(()=>toast('학생을 추가해 시작하세요'),300);
+}
+function seedDemo(){
+  S.academy={name:'햇살영어학원'};
+  S.students=[
+    {id:id(),name:'김민준',guardian:'어머니',phone:'01012340001',fee:250000},
+    {id:id(),name:'이서연',guardian:'어머니',phone:'01012340002',fee:250000},
+    {id:id(),name:'박지호',guardian:'아버지',phone:'01012340003',fee:250000},
+    {id:id(),name:'최수아',guardian:'어머니',phone:'01012340004',fee:300000},
+    {id:id(),name:'정우진',guardian:'어머니',phone:'01012340005',fee:300000},
+  ];
+  save();boot();toast('샘플 학원으로 둘러보는 중');
+}
+function id(){return 's'+Math.random().toString(36).slice(2,9);}
+
+/* ---------- tabs ---------- */
+function tab(t){
+  ['attend','notice','pay','students'].forEach(x=>{
+    document.getElementById('p-'+x).classList.toggle('on',x===t);
+    document.getElementById('t-'+x).classList.toggle('on',x===t);
+  });
+  document.querySelector('.body').scrollTop=0;
+}
+
+/* ---------- 출결 ---------- */
+function renderAttend(){
+  const box=document.getElementById('attendList');
+  const rec=S.attendance[todayKey()]||{};
+  document.getElementById('totCnt').textContent=S.students.length;
+  document.getElementById('inCnt').textContent=Object.values(rec).filter(r=>r.in).length;
+  if(!S.students.length){box.innerHTML=emptyStu();return;}
+  box.innerHTML='';
+  S.students.forEach(s=>{
+    const r=rec[s.id]||{};
+    const row=document.createElement('div');
+    row.className='row'+(r.out?' out':r.in?' done':'');
+    let sub,btn;
+    if(r.out){sub=`<span class="sub ok">✓ ${r.in} 등원 · ${r.out} 하원 · 알림 완료</span>`;btn=`<button class="btn b-done">완료</button>`;}
+    else if(r.in){sub=`<span class="sub ok">✓ ${r.in} 등원 · 알림 보냄</span>`;btn=`<button class="btn b-blue" onclick="mark('${s.id}','out')">하원</button>`;}
+    else{sub=`<span class="sub">등원 전 · ${s.guardian}</span>`;btn=`<button class="btn b-green" onclick="mark('${s.id}','in')">등원</button>`;}
+    row.innerHTML=`<div class="av">${s.name[0]}</div><div class="info"><div class="nm">${s.name}</div>${sub}</div>${btn}`;
+    box.appendChild(row);
+  });
+}
+function mark(sid,kind){
+  const s=S.students.find(x=>x.id===sid);const k=todayKey();
+  S.attendance[k]=S.attendance[k]||{};S.attendance[k][sid]=S.attendance[k][sid]||{};
+  const t=nowHM();S.attendance[k][sid][kind]=t;save();renderAttend();
+  const word=kind==='in'?'등원':'하원';
+  const msg=`[${S.academy.name}]\n${s.name} 학생이 ${t}에 안전하게 ${word}했습니다. 😊`;
+  openSend(`${s.name} ${word} 알림`,msg,[s],`${s.name} ${s.guardian}님`);
+}
+
+/* ---------- 공지 ---------- */
+function renderNotice(){document.getElementById('noticeCnt').textContent=S.students.length;}
+function composeNotice(text){
+  if(!guard())return;
+  openSend('공지 전체 발송',`[${S.academy.name} 공지]\n${text}`,S.students,`학부모 ${S.students.length}명 전체`);
+}
+function composeFreeNotice(){
+  const v=document.getElementById('noticeFree').value.trim();
+  if(!v){toast('공지 내용을 입력하세요');return;}
+  if(!guard())return;
+  openSend('공지 전체 발송',`[${S.academy.name} 공지]\n${v}`,S.students,`학부모 ${S.students.length}명 전체`);
+  document.getElementById('noticeFree').value='';
+}
+
+/* ---------- 수납 ---------- */
+function renderPay(){
+  const box=document.getElementById('payList');
+  const m=monthKey();const rec=S.payments[m]||{};
+  if(!S.students.length){box.innerHTML=emptyStu();document.getElementById('unpaidCnt').textContent=0;document.getElementById('payBadge').textContent='';return;}
+  let unpaid=0;box.innerHTML='';
+  S.students.forEach(s=>{
+    const st=rec[s.id]||'unpaid';
+    if(st!=='paid')unpaid++;
+    const row=document.createElement('div');row.className='row';
+    let sub,btns;
+    if(st==='paid'){sub=`<span class="sub ok">✓ ${won(s.fee)} 납부 완료 · 영수증 발송</span>`;btns=`<button class="btn b-done">완료</button>`;}
+    else if(st==='notified'){sub=`<span class="sub warn">미납 ${won(s.fee)} · 안내 보냄</span>`;btns=`<button class="btn b-ghost" onclick="notifyPay('${s.id}')">재안내</button><button class="btn b-green" onclick="donePay('${s.id}')">완료</button>`;}
+    else{sub=`<span class="sub warn">미납 ${won(s.fee)}</span>`;btns=`<button class="btn b-orange" onclick="notifyPay('${s.id}')">안내</button><button class="btn b-green" onclick="donePay('${s.id}')">완료</button>`;}
+    row.innerHTML=`<div class="av">${s.name[0]}</div><div class="info"><div class="nm">${s.name}</div>${sub}</div><div class="btnset">${btns}</div>`;
+    box.appendChild(row);
+  });
+  document.getElementById('unpaidCnt').textContent=unpaid;
+  document.getElementById('payBadge').textContent=unpaid?unpaid:'';
+}
+function setPay(sid,st){const m=monthKey();S.payments[m]=S.payments[m]||{};S.payments[m][sid]=st;save();renderPay();}
+function notifyPay(sid){
+  const s=S.students.find(x=>x.id===sid);
+  const msg=`[${S.academy.name}]\n${s.name} 학생 ${monthLabel()} 수강료 ${won(s.fee)} 납부 안내드립니다.\n감사합니다 😊`;
+  openSend(`${s.name} 수납 안내`,msg,[s],`${s.name} ${s.guardian}님`,()=>setPay(sid,'notified'));
+}
+function donePay(sid){
+  const s=S.students.find(x=>x.id===sid);
+  const msg=`[${S.academy.name}]\n${s.name} 학생 ${monthLabel()} 수강료 ${won(s.fee)} 납부가 확인되었습니다.\n감사합니다 🧾`;
+  openSend(`${s.name} 납부 완료 · 영수증`,msg,[s],`${s.name} ${s.guardian}님`,()=>setPay(sid,'paid'));
+}
+
+/* ---------- 학생 관리 ---------- */
+function renderStudents(){
+  const box=document.getElementById('studentList');
+  document.getElementById('stuCnt').textContent=S.students.length;
+  if(!S.students.length){box.innerHTML=emptyStu();return;}
+  box.innerHTML='';
+  S.students.forEach(s=>{
+    const row=document.createElement('div');row.className='row';
+    row.innerHTML=`<div class="av">${s.name[0]}</div><div class="info"><div class="nm">${s.name} <span style="font-weight:500;color:var(--mute);font-size:12px">· ${s.guardian}</span></div><div class="sub">${fmtPhone(s.phone)} · ${won(s.fee)}</div></div>
+      <button class="btn b-line" onclick="openStudentForm('${s.id}')">수정</button>`;
+    box.appendChild(row);
+  });
+}
+function openStudentForm(sid){
+  const s=sid?S.students.find(x=>x.id===sid):null;
+  const sh=document.getElementById('sheet');
+  sh.innerHTML=`<div class="grip"></div>
+    <h3>${s?'학생 정보 수정':'학생 추가'}</h3>
+    <div class="sh-sub">학부모님 연락처가 있어야 알림을 보낼 수 있어요.</div>
+    <div class="field"><label>학생 이름</label><input id="f-name" value="${s?s.name:''}" placeholder="예) 김민준"></div>
+    <div class="grid2">
+      <div class="field"><label>학부모 호칭</label><select id="f-guardian">
+        ${['어머니','아버지','보호자'].map(g=>`<option ${s&&s.guardian===g?'selected':''}>${g}</option>`).join('')}
+      </select></div>
+      <div class="field"><label>월 수강료</label><input id="f-fee" type="number" inputmode="numeric" value="${s?s.fee:''}" placeholder="250000"></div>
+    </div>
+    <div class="field"><label>학부모 연락처</label><input id="f-phone" type="tel" inputmode="numeric" value="${s?s.phone:''}" placeholder="01012345678"></div>
+    <div class="sheet-btns">
+      <button class="primary" onclick="saveStudent('${sid||''}')">저장</button>
+      ${s?`<button class="tiny" style="margin:2px auto 0" onclick="delStudent('${s.id}')">이 학생 삭제</button>`:''}
+    </div>`;
+  openSheet();
+}
+function saveStudent(sid){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.replace(/[^0-9]/g,'');
+  const guardian=document.getElementById('f-guardian').value;
+  const fee=parseInt(document.getElementById('f-fee').value)||0;
+  if(!name){toast('이름을 넣어주세요');return;}
+  if(sid){const s=S.students.find(x=>x.id===sid);Object.assign(s,{name,phone,guardian,fee});}
+  else{S.students.push({id:id(),name,phone,guardian,fee});}
+  save();closeSheet();renderAll();toast(sid?'수정됐어요':'학생이 추가됐어요');
+}
+function delStudent(sid){
+  S.students=S.students.filter(x=>x.id!==sid);save();closeSheet();renderAll();toast('삭제됐어요');
+}
+
+/* ---------- send sheet (핵심: 지금은 문자/카톡, 나중에 알림톡 API로 교체) ---------- */
+let pendingAfter=null;
+function openSend(title,msg,recips,recipLabel,after){
+  pendingAfter=after||null;
+  const phones=recips.filter(r=>r.phone).map(r=>r.phone);
+  const noPhone=recips.length-phones.length;
+  const sh=document.getElementById('sheet');
+  sh.innerHTML=`<div class="grip"></div>
+    <h3>${title}</h3>
+    <div class="sh-sub">아래 내용이 학부모님께 갑니다. 보낼 방법을 고르세요.</div>
+    <div class="msgbox">${esc(msg)}</div>
+    <div class="recips">받는 사람: <b>${recipLabel}</b>${noPhone?` · <span style="color:var(--orange-d)">연락처 없는 ${noPhone}명 제외</span>`:''}</div>
+    <div class="sheet-btns">
+      <button class="primary green" onclick="doCopy(${esc(JSON.stringify(msg))})">📋 문구 복사 (카톡에 붙여넣기)</button>
+      ${phones.length?`<button class="primary" onclick="doSMS(${esc(JSON.stringify(phones))},${esc(JSON.stringify(msg))})">💬 문자 앱으로 보내기 (${phones.length}명)</button>`:''}
+      <button class="btn b-line" style="width:100%;padding:13px;border-radius:14px" onclick="confirmSent()">보냈어요 · 완료 처리</button>
+    </div>
+    <div class="hintbox">💡 지금은 문자·카톡으로 직접 보내는 방식이에요. 카카오 <b>알림톡</b> 심사가 끝나면 버튼 한 번에 자동 발송으로 바뀝니다.</div>`;
+  openSheet();
+}
+function doCopy(msg){navigator.clipboard?.writeText(msg).then(()=>toast('복사됨 · 카톡에 붙여넣으세요')).catch(()=>toast('복사 실패 — 길게 눌러 복사'));}
+function doSMS(phones,msg){
+  const sep=/(iPhone|iPad|Mac)/.test(navigator.userAgent)?'&':'?';
+  window.location.href=`sms:${phones.join(',')}${sep}body=${encodeURIComponent(msg)}`;
+}
+function confirmSent(){logSend();if(pendingAfter)pendingAfter();closeSheet();toast('처리됐어요');}
+function logSend(){S.log.push({t:Date.now()});save();}
+
+/* the copy/sms paths also count as sent when user taps "보냈어요"; keep it simple */
+
+/* ---------- settings ---------- */
+function openSettings(){
+  const sh=document.getElementById('sheet');
+  sh.innerHTML=`<div class="grip"></div>
+    <h3>설정</h3>
+    <div class="sh-sub">${S.academy?S.academy.name:''} · 학생 ${S.students.length}명</div>
+    <div class="field"><label>학원 이름</label><input id="set-name" value="${S.academy?S.academy.name:''}"></div>
+    <div class="sheet-btns">
+      <button class="primary" onclick="saveSettings()">저장</button>
+      <button class="btn b-line" style="width:100%;padding:13px;border-radius:14px" onclick="exportData()">📦 데이터 백업 내보내기</button>
+      <button class="tiny" style="margin:4px auto 0" onclick="wipe()">모든 데이터 초기화</button>
+    </div>
+    <div class="hintbox">데이터는 이 기기 안에만 저장돼요. 기기를 바꾸면 백업 파일로 옮기세요. (정식 버전에선 클라우드 저장으로 바뀝니다.)</div>`;
+  openSheet();
+}
+function saveSettings(){const v=document.getElementById('set-name').value.trim();if(v){S.academy.name=v;save();document.getElementById('schName').textContent=v;}closeSheet();toast('저장됐어요');}
+function exportData(){
+  const blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`이음_백업_${todayKey()}.json`;a.click();toast('백업 파일 저장됨');
+}
+function wipe(){if(confirm('정말 모든 데이터를 지울까요? 되돌릴 수 없어요.')){localStorage.removeItem(KEY);S=fresh();closeSheet();boot();}}
+
+/* ---------- helpers ---------- */
+function guard(){if(!S.students.length){toast('먼저 학생을 추가하세요');tab('students');return false;}return true;}
+function emptyStu(){return `<div class="empty"><span class="em">👥</span>아직 학생이 없어요.<br>‘학생’ 탭에서 추가해 시작하세요.</div>`;}
+function fmtPhone(p){if(!p)return '연락처 없음';return p.replace(/(\d{3})(\d{3,4})(\d{4})/,'$1-$2-$3');}
+function esc(s){return typeof s==='string'?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):s;}
+function openSheet(){document.getElementById('mask').classList.add('show');}
+function closeSheet(){document.getElementById('mask').classList.remove('show');}
+let tt;function toast(t){document.getElementById('toastTxt').textContent=t;const e=document.getElementById('toast');e.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('show'),2000);}
+
+boot();
+</script>
+</body>
+</html>
