@@ -3,5 +3,10 @@
   base = "닿다-app"
   command = "next build"
 
+# Supabase URL/anon 키는 브라우저에 공개되는 값(공개용)이라 빌드 결과물에 들어감.
+# Netlify 시크릿 스캐너가 이를 오탐하지 않도록 제외. (service_role·Anthropic 키는 계속 스캔됨)
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_URL,SUPABASE_ANON_KEY,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
