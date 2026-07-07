@@ -199,9 +199,9 @@ const ko: FeatureStrings = {
   guideStep1Body: "오른쪽 위의 A 버튼으로 글자를 크게 키울 수 있어요.",
   guideStep2Title: "음성으로 말해도 돼요",
   guideStep2Body: "키보드가 어려우면 마이크를 누르고 편하게 말씀하세요.",
-  guideStep3Title: "기도를 나눌 수 있어요",
+  guideStep3Title: "받은 말을 간직할 수 있어요",
   guideStep3Body:
-    "받은 위로의 말을 보관하거나 가족과 카카오톡으로 나눌 수 있어요.",
+    "받은 위로의 말을 간직하거나 가까운 사람과 나눌 수 있어요.",
   guideNext: "다음",
   guideDone: "시작하기",
   guideSkip: "건너뛰기",
@@ -211,12 +211,12 @@ const ko: FeatureStrings = {
   todayShare: "오늘의 한 마디 나누기",
   todayOpenApp: "토닥 열기",
 
-  crossLinkSelahToMannaTitle: "기도가 필요하신가요?",
+  crossLinkSelahToMannaTitle: "혼자 견디고 있진 않나요?",
   crossLinkSelahToMannaBody:
-    "셀라에서는 신앙 안에서 함께 기도하고 말씀을 나눌 수 있어요.",
-  crossLinkMannaToSelahTitle: "기도가 필요하신가요?",
+    "마음이 무거운 밤, 토닥이 곁에 있을게요.",
+  crossLinkMannaToSelahTitle: "혼자 견디고 있진 않나요?",
   crossLinkMannaToSelahBody:
-    "셀라에서는 신앙 안에서 함께 기도하고 말씀을 나눌 수 있어요.",
+    "마음이 무거운 밤, 토닥이 곁에 있을게요.",
   crossLinkOpen: "열어보기",
   crossLinkDismiss: "다음에",
 
@@ -248,7 +248,7 @@ const ko: FeatureStrings = {
   reminderUnsupported:
     "이 기기/브라우저에서는 푸시 알림이 지원되지 않아요. PWA로 설치하면 사용할 수 있어요.",
   reminderSaved: "저장되었어요. 매일 알려드릴게요.",
-  reminderDefaultMsgSelah: "잠시 멈춰, 오늘 마음을 하나님께 올려드려 보세요.",
+  reminderDefaultMsgSelah: "잠시 멈춰, 오늘 마음을 가만히 들여다보세요.",
   reminderDefaultMsgManna: "오늘 하루, 자신에게 한 번 부드러워지는 시간을 가져보세요.",
   reminderTestSend: "지금 한 번 보내보기",
   reminderTestSent: "방금 보냈어요. 알림이 안 보이면 권한을 확인해 주세요.",
@@ -336,12 +336,12 @@ const en: FeatureStrings = {
   todayShare: "Share today's words",
   todayOpenApp: "Open 토닥",
 
-  crossLinkSelahToMannaTitle: "Need prayer?",
+  crossLinkSelahToMannaTitle: "Carrying this alone?",
   crossLinkSelahToMannaBody:
-    "In SELAH you can pray and reflect on Scripture together.",
-  crossLinkMannaToSelahTitle: "Need to pray?",
+    "토닥 is here on the hard nights.",
+  crossLinkMannaToSelahTitle: "Carrying this alone?",
   crossLinkMannaToSelahBody:
-    "In SELAH you can pray and reflect on Scripture together.",
+    "토닥 is here on the hard nights.",
   crossLinkOpen: "Open",
   crossLinkDismiss: "Later",
 
@@ -373,7 +373,7 @@ const en: FeatureStrings = {
   reminderUnsupported:
     "Push notifications aren't supported on this device/browser. Install as a PWA to enable them.",
   reminderSaved: "Saved. We'll remind you every day.",
-  reminderDefaultMsgSelah: "Pause for a moment and lift today's heart to God.",
+  reminderDefaultMsgSelah: "Pause for a moment and look gently at today's heart.",
   reminderDefaultMsgManna: "Take a moment today to be gentle with yourself.",
   reminderTestSend: "Send a test now",
   reminderTestSent: "Sent. If you don't see it, check your permissions.",

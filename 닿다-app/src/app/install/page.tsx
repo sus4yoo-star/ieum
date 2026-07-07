@@ -114,7 +114,7 @@ export default function InstallPage() {
           className="mb-1 text-center text-[17px] font-medium text-selah-cream animate-rise"
           style={{ animationDelay: "0.1s" }}
         >
-          토닥를 앱처럼 사용하세요
+          토닥을 앱처럼 사용하세요
         </p>
         <p
           className="mb-8 max-w-xs text-center text-[13px] leading-relaxed text-selah-cream3 animate-rise"

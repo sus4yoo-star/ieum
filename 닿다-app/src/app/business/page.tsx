@@ -22,7 +22,7 @@ export default function BusinessPage() {
           사업자정보
         </h1>
         <p className="text-sm text-neutral-500 mb-10">
-          토닥를 운영하는 사업자 정보입니다.
+          토닥을 운영하는 사업자 정보입니다.
         </p>
 
         <div className="space-y-6">

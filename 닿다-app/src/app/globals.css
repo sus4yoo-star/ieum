@@ -10,26 +10,26 @@
     --font-serif: "Noto Serif KR";
     --font-display: "Cormorant Garamond";
 
-    /* shadcn token mapping onto the 토닥 teal + soft-gold system (HSL) */
-    --background: 193 82% 9%;
-    --foreground: 40 30% 93%;
-    --card: 192 72% 12%;
-    --card-foreground: 40 30% 93%;
-    --popover: 192 72% 12%;
-    --popover-foreground: 40 30% 93%;
-    --primary: 38 62% 67%;
-    --primary-foreground: 193 82% 9%;
-    --secondary: 190 40% 17%;
-    --secondary-foreground: 40 30% 93%;
-    --muted: 190 35% 19%;
-    --muted-foreground: 175 12% 62%;
-    --accent: 38 62% 67%;
-    --accent-foreground: 193 82% 9%;
+    /* shadcn token mapping onto the 토닥 night-indigo + dawn-amber system (HSL) */
+    --background: 244 34% 13%;
+    --foreground: 40 40% 94%;
+    --card: 245 32% 18%;
+    --card-foreground: 40 40% 94%;
+    --popover: 245 32% 18%;
+    --popover-foreground: 40 40% 94%;
+    --primary: 33 80% 70%;
+    --primary-foreground: 244 34% 13%;
+    --secondary: 246 25% 20%;
+    --secondary-foreground: 40 40% 94%;
+    --muted: 246 25% 20%;
+    --muted-foreground: 249 15% 62%;
+    --accent: 33 80% 70%;
+    --accent-foreground: 244 34% 13%;
     --destructive: 0 70% 60%;
-    --destructive-foreground: 40 30% 93%;
-    --border: 40 55% 60% / 0.18;
-    --input: 40 55% 60% / 0.16;
-    --ring: 38 62% 67%;
+    --destructive-foreground: 40 40% 94%;
+    --border: 250 25% 70% / 0.16;
+    --input: 250 25% 70% / 0.14;
+    --ring: 33 80% 70%;
     --radius: 0.9rem;
   }
 
@@ -51,7 +51,7 @@
   }
 
   ::selection {
-    background: rgba(212, 175, 55, 0.28);
+    background: rgba(240, 178, 116, 0.28);
   }
 }
 
@@ -61,12 +61,12 @@
     background:
       radial-gradient(
         ellipse 90% 60% at 50% 0%,
-        rgba(18, 86, 84, 0.55),
+        rgba(70, 60, 110, 0.55),
         transparent 70%
       ),
       radial-gradient(
         ellipse 70% 50% at 12% 8%,
-        rgba(180, 220, 200, 0.10),
+        rgba(233, 143, 166, 0.10),
         transparent 60%
       ),
       radial-gradient(
@@ -74,18 +74,18 @@
         rgba(227, 185, 117, 0.07),
         transparent 70%
       ),
-      #03212a;
+      #16152b;
   }
 
   .verse-card {
-    background: #08313a;
-    border-left: 2px solid #e3b975;
+    background: #211f3d;
+    border-left: 2px solid #f0b274;
   }
 
   /* Slim, elegant scrollbars */
   .selah-scroll {
     scrollbar-width: thin;
-    scrollbar-color: rgba(23, 80, 90, 0.7) transparent;
+    scrollbar-color: rgba(60, 55, 95, 0.7) transparent;
     scroll-behavior: smooth;
   }
   .selah-scroll::-webkit-scrollbar {
@@ -93,7 +93,7 @@
     height: 5px;
   }
   .selah-scroll::-webkit-scrollbar-thumb {
-    background: rgba(23, 80, 90, 0.7);
+    background: rgba(60, 55, 95, 0.7);
     border-radius: 9999px;
   }
   .selah-scroll::-webkit-scrollbar-track {
@@ -104,7 +104,7 @@
     display: inline-block;
     width: 2px;
     height: 1.05em;
-    background: #e3b975;
+    background: #f0b274;
     margin-left: 2px;
     vertical-align: text-bottom;
     @apply animate-blink;

@@ -27,13 +27,13 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
   const feedbackMap: Record<string, FbCopy> = {
     ko: {
       menu: "의견 남기기",
-      title: "토닥는 어떠셨나요?",
+      title: "토닥은 어떠셨나요?",
       sub: "더 따뜻한 동행이 될 수 있도록, 칭찬이나 개선점을 들려주세요 😊",
       placeholder: "마음에 드신 점이나 아쉬운 점을 자유롭게 적어주세요…",
       emailPlaceholder: "",
       send: "보내기",
       sending: "보내는 중…",
-      thanks: "소중한 마음 고맙습니다 🌿 더 따뜻한 토닥가 되겠습니다.",
+      thanks: "소중한 마음 고맙습니다 🌿 더 따뜻한 토닥이 되겠습니다.",
       error: "잠시 후 다시 시도해 주세요.",
     },
     en: {
@@ -361,7 +361,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     ko: {
       menu: "문의하기",
       title: "무엇이든 물어보세요",
-      sub: "토닥를 사용하시면서 궁금하거나 불편한 점이 있으신가요? 알려주시면 빠르게 답변드리겠습니다.",
+      sub: "토닥을 사용하시면서 궁금하거나 불편한 점이 있으신가요? 알려주시면 빠르게 답변드리겠습니다.",
       placeholder: "문의하실 내용을 자유롭게 적어주세요…",
       emailPlaceholder: "답변받을 이메일 (선택)",
       send: "보내기",

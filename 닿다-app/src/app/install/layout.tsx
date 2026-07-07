@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const TITLE = "토닥를 앱처럼 사용하세요";
+const TITLE = "토닥을 앱처럼 사용하세요";
 const DESC =
   "당신의 마음 동행 · 홈 화면에 추가하면 앱처럼 한 번에 열 수 있어요. 설치는 필요 없습니다.";
 const URL = "https://themanna.netlify.app/install";

@@ -79,7 +79,7 @@ export default function AddToHomePrompt() {
         <div className="flex items-start gap-4">
           <img src="/icon-192.png" alt="토닥" className="h-12 w-12 rounded-2xl shadow-lg" />
           <div className="flex-1">
-            <p className="text-base font-semibold text-[#f1d27a]">토닥를 홈 화면에 추가해보세요</p>
+            <p className="text-base font-semibold text-[#f1d27a]">토닥을 홈 화면에 추가해보세요</p>
             <p className="mt-1 text-sm leading-6 text-white/80">
               앱처럼 바로 열고, 언제든 더 편하게 만날 수 있어요.
             </p>

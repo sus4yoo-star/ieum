@@ -119,7 +119,7 @@ const ko: Dict = {
     "말이 정리되지 않아도 괜찮아요. 마음은 꺼내는 순간부터 한결 가벼워져요.",
   verseRef: "",
   enter: "여정 시작하기",
-  note: "토닥는 따뜻한 정서적 동행을 제공합니다. 전문적인 의료·심리 치료를 대체하지 않습니다.",
+  note: "토닥은 따뜻한 정서적 동행을 제공합니다. 전문적인 의료·심리 치료를 대체하지 않습니다.",
   platform: "AI 마음 동행",
   bibleOn: "깊은 동행 켬",
   bibleOff: "깊은 동행 끔",
@@ -162,11 +162,11 @@ const ko: Dict = {
   invalidEmail: "올바른 이메일을 입력해주세요.",
   authConfigMissing:
     "Supabase 설정이 필요합니다. 환경변수를 확인해주세요.",
-  thinking: "토닥가 마음을 헤아리는 중…",
+  thinking: "토닥이 마음을 헤아리는 중…",
   donate: "함께하기",
   donateTitle: "함께하기",
   donateSub:
-    "토닥의 사역을 함께해주세요. 여러분의 후원이 더 많은 분들에게 하나님의 위로를 전합니다.",
+    "토닥을 함께 만들어가요. 여러분의 후원이 더 많은 마음에 위로가 닿게 합니다.",
   donateKakao: "카카오페이로 후원하기",
   donateKakaoDesc: "카카오페이 · 간편 결제",
   donatePaypal: "페이팔로 후원하기",
@@ -178,10 +178,10 @@ const ko: Dict = {
   donateCopy: "복사",
   donateCopied: "복사됨",
   donateNote:
-    "후원금은 토닥 서비스 운영 및 선교에 사용됩니다. 사랑과 기도로 함께해주셔서 감사합니다.",
-  installTitle: "토닥를 앱처럼 사용하세요",
+    "후원금은 토닥 서비스 운영에 쓰입니다. 함께해주셔서 감사합니다.",
+  installTitle: "토닥을 앱처럼 사용하세요",
   installDesc:
-    "홈 화면에 추가하면 앱스토어 없이도 토닥를 앱처럼 바로 열 수 있어요.",
+    "홈 화면에 추가하면 앱스토어 없이도 토닥을 앱처럼 바로 열 수 있어요.",
   installButton: "앱으로 설치하기",
   installAndroid:
     "Chrome 메뉴(⋮)를 누르고 ‘홈 화면에 추가’를 선택하세요.",
@@ -249,7 +249,7 @@ const en: Dict = {
   donate: "Walk with us",
   donateTitle: "Walk with 토닥",
   donateSub:
-    "Walk alongside 토닥's ministry. Your support carries God's comfort to more people.",
+    "Help keep 토닥 running. Your support brings comfort to more hearts.",
   donateKakao: "Give with KakaoPay",
   donateKakaoDesc: "KakaoPay · quick payment",
   donatePaypal: "Give with PayPal",
