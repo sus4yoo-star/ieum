@@ -110,7 +110,7 @@ export default async function RootLayout({
     >
       <body
         className="min-h-dvh antialiased"
-        style={{ backgroundColor: "#03212a" }}
+        style={{ backgroundColor: "#16152b" }}
       >
         <Splash />
         <LanguageProvider initialLang={initialLang}>

@@ -28,7 +28,7 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-center bg-[#03212a] px-6 text-center text-[#f3efe6]">
+    <main className="flex min-h-dvh flex-col items-center justify-center bg-[#16152b] px-6 text-center text-[#f3efe6]">
       <div className="max-w-sm">
         <h1 className="mb-3 font-serif text-2xl font-medium text-[#e3b975]">
           잠시 문제가 생겼어요
@@ -41,7 +41,7 @@ export default function GlobalError({
           <button
             type="button"
             onClick={reset}
-            className="rounded-2xl bg-[#e3b975] px-5 py-3 text-[14px] font-semibold text-[#03212a] transition hover:brightness-110 active:scale-[0.98]"
+            className="rounded-2xl bg-[#e3b975] px-5 py-3 text-[14px] font-semibold text-[#16152b] transition hover:brightness-110 active:scale-[0.98]"
           >
             다시 시도
           </button>

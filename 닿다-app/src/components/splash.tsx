@@ -32,7 +32,7 @@ export function Splash() {
       style={{
         position: "fixed",
         inset: 0,
-        background: "#03212a",
+        background: "#16152b",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
