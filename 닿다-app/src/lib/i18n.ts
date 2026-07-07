@@ -111,10 +111,10 @@ export interface Dict {
 }
 
 const ko: Dict = {
-  tagline: "당신이 어디에 있든, 함께 걷습니다",
+  tagline: "오늘 밤, 토닥토닥",
   introTitle: "마음을 나누기 전, 안전한 공간을 준비할게요.",
   introDesc:
-    "힘든 순간, 판단하지 않고 함께 걷겠습니다. 당신은 혼자가 아니며, 깊이 이해받고 있고, 충분히 소중한 사람입니다.",
+    "짝사랑, 고백, 이별… 사랑이 아픈 밤. 판단 없이 곁에서 들을게요. 어떤 답이 와도, 당신은 당신 그대로 충분해요.",
   verseText:
     "말이 정리되지 않아도 괜찮아요. 마음은 꺼내는 순간부터 한결 가벼워져요.",
   verseRef: "",
@@ -195,10 +195,10 @@ const ko: Dict = {
 };
 
 const en: Dict = {
-  tagline: "Walk with you, wherever you are",
+  tagline: "Tonight, a gentle hand on your back",
   introTitle: "Before you share your heart, we prepare a safe space.",
   introDesc:
-    "In hard moments, we walk with you without judgment. You are not alone. You are deeply seen, and you matter.",
+    "A crush, a confession, a goodbye — the nights love aches. We listen without judgment. Whatever answer comes, you are still enough, just as you are.",
   verseText:
     "Your words don't have to be tidy. A heart feels lighter the moment it's spoken.",
   verseRef: "",

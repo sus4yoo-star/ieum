@@ -57,7 +57,7 @@ export default function TodayPage() {
   const [busyShare, setBusyShare] = React.useState(false);
 
   const entry = React.useMemo(() => KO_BANK[todayIndex(KO_BANK.length)], []);
-  const shareText = `${entry.line}\n\n${entry.note}\n\nmanna.amov.kr`;
+  const shareText = `${entry.line}\n\n${entry.note}\n\ntodakamov.netlify.app`;
 
   const onShare = async () => {
     setBusyShare(true);

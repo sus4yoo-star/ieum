@@ -9,7 +9,7 @@ import { normalizeLang, isRTL } from "@/lib/i18n";
 import type { LangCode } from "@/lib/types";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://themanna.netlify.app"),
+  metadataBase: new URL("https://todakamov.netlify.app"),
 
   title: {
     default: "토닥 — 오늘 밤, 토닥토닥",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "토닥 — 오늘 밤, 토닥토닥",
     description:
       "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
-    url: "https://themanna.netlify.app",
+    url: "https://todakamov.netlify.app",
     siteName: "토닥",
     locale: "ko_KR",
     type: "website",

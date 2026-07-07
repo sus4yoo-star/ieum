@@ -26,12 +26,12 @@ export default function HomePage() {
           <img
             src="/symbol-transparent.png"
             alt="토닥"
-            className="relative h-32 w-44 object-contain drop-shadow-[0_0_26px_rgba(212,175,55,0.4)]"
+            className="relative h-32 w-44 object-contain drop-shadow-[0_0_26px_rgba(240,178,116,0.42)]"
           />
         </div>
 
         <h1
-          className="mb-2 font-display text-5xl font-semibold tracking-[0.22em] text-selah-gold animate-rise"
+          className="mb-2 font-serif text-5xl font-semibold tracking-[0.14em] text-selah-gold animate-rise"
           style={{ animationDelay: "0.05s" }}
         >
           토닥

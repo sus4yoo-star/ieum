@@ -44,7 +44,7 @@ export default function BusinessPage() {
                 }
               />
               <Row label="서비스명" value="토닥 (토닥)" />
-              <Row label="서비스 도메인" value="manna.amov.kr" />
+              <Row label="서비스 도메인" value="todakamov.netlify.app" />
             </dl>
           </div>
 
