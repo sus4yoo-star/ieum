@@ -294,9 +294,10 @@ export function ChatInput({
           placeholder={t.placeholder}
           disabled={disabled}
           // Picks up the user's chosen size from the global CSS variable
-          // (set by the font-size dropdown in the chat header). Falls back
-          // to 16px when no preference has been applied yet.
-          style={{ fontSize: "var(--chat-font-size, 16px)" }}
+          // (set by the font-size dropdown in the chat header). Clamped to a
+          // 16px floor so iOS Safari never auto-zooms on focus (it zooms when
+          // an input's font-size is < 16px). Larger presets still scale up.
+          style={{ fontSize: "max(16px, var(--chat-font-size, 16px))" }}
           onChange={(e) => {
             setValue(e.target.value);
             resize();
