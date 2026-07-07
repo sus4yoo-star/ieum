@@ -1,0 +1,7 @@
+# Netlify — 토닥 (코드가 닿다-app/ 하위폴더에 있음)
+[build]
+  base = "닿다-app"
+  command = "next build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
