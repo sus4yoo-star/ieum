@@ -29,14 +29,14 @@ export function Logo({
         src="/symbol-transparent.png"
         alt=""
         className={cn(
-          "shrink-0 object-contain drop-shadow-[0_0_12px_rgba(212,175,55,0.28)] transition-transform group-hover:scale-105",
+          "shrink-0 object-contain drop-shadow-[0_0_12px_rgba(240,178,116,0.30)] transition-transform group-hover:scale-105",
           dim
         )}
       />
       <span className="leading-tight">
         <span
           className={cn(
-            "block font-display font-semibold tracking-[0.2em] text-selah-gold",
+            "block font-serif font-semibold tracking-[0.12em] text-selah-gold",
             name
           )}
         >

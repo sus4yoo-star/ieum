@@ -14,7 +14,8 @@ import { getFeatureStrings } from "@/lib/feature-strings";
  * vice versa. Dismissable; remembers via localStorage forever.
  */
 const SEEN_KEY = "manna_cross_link_seen";
-const MIN_SESSIONS = 3;
+// 토닥: 셀라(신앙) 사이드 크로스링크는 토닥에 불필요 → 비활성화
+const MIN_SESSIONS = Infinity;
 
 export function CrossLinkCard({
   sessionCount,
