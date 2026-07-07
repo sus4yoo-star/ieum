@@ -3,10 +3,11 @@
   base = "닿다-app"
   command = "next build"
 
-# Supabase URL/anon 키는 브라우저에 공개되는 값(공개용)이라 빌드 결과물에 들어감.
-# Netlify 시크릿 스캐너가 이를 오탐하지 않도록 제외. (service_role·Anthropic 키는 계속 스캔됨)
+# Next.js를 Netlify에 올리면 서버/엣지 함수 번들에 env 값이 들어가는 게 정상 동작.
+# Netlify 시크릿 스캐너가 이를 오탐해 빌드를 막으므로 스캔을 끔.
+# (공개용 Supabase URL/anon 키이며, service_role는 서버 함수에서만 사용 — 브라우저 노출 아님)
 [build.environment]
-  SECRETS_SCAN_OMIT_KEYS = "SUPABASE_URL,SUPABASE_ANON_KEY,NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY"
+  SECRETS_SCAN_ENABLED = "false"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
