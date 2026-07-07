@@ -133,7 +133,7 @@ export async function GET(req: Request) {
   }
 
   // 4) Fire pushes.
-  const BRAND = process.env.APP_BRAND_LABEL || "MANNA";
+  const BRAND = process.env.APP_BRAND_LABEL || "토닥";
   const DEFAULT_KO = "오늘 하루, 자신에게 한 번 부드러워지는 시간을 가져보세요.";
   const DEFAULT_EN = "Take a moment today to be gentle with yourself.";
 

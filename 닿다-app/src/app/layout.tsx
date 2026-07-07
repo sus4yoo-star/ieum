@@ -12,19 +12,19 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://themanna.netlify.app"),
 
   title: {
-    default: "MANNA — Walk with you, wherever you are",
-    template: "%s | MANNA",
+    default: "토닥 — 오늘 밤, 토닥토닥",
+    template: "%s | 토닥",
   },
 
   description:
-    "당신의 마음 동행 · 힘든 순간, 판단하지 않고 함께 걷겠습니다. 당신은 혼자가 아닙니다.",
+    "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
 
-  applicationName: "MANNA",
+  applicationName: "토닥",
   manifest: "/manifest.json",
 
   appleWebApp: {
     capable: true,
-    title: "MANNA",
+    title: "토닥",
     statusBarStyle: "black-translucent",
   },
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "black-translucent",
-    "apple-mobile-web-app-title": "MANNA",
+    "apple-mobile-web-app-title": "토닥",
   },
 
   icons: {
@@ -49,11 +49,11 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "MANNA — Walk with you, wherever you are",
+    title: "토닥 — 오늘 밤, 토닥토닥",
     description:
-      "당신의 마음 동행 · 힘든 순간, 판단하지 않고 함께 걷겠습니다. 당신은 혼자가 아닙니다.",
+      "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
     url: "https://themanna.netlify.app",
-    siteName: "MANNA",
+    siteName: "토닥",
     locale: "ko_KR",
     type: "website",
     images: [
@@ -61,25 +61,25 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "MANNA",
+        alt: "토닥",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "MANNA — Walk with you, wherever you are",
+    title: "토닥 — 오늘 밤, 토닥토닥",
     description:
-      "당신의 마음 동행 · 힘든 순간, 판단하지 않고 함께 걷겠습니다. 당신은 혼자가 아닙니다.",
+      "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
     images: ["/og-image.png"],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#03212a",
+  themeColor: "#16152b",
   width: "device-width",
   initialScale: 1,
-  // Allow pinch-zoom for accessibility — MANNA must stay reachable for
+  // Allow pinch-zoom for accessibility — 토닥 must stay reachable for
   // users who rely on the browser zoom (older eyes, motor-impaired users).
   viewportFit: "cover",
 };

@@ -146,7 +146,7 @@ const ko: FeatureStrings = {
   crisisCallNow: "전화 연결",
   crisisDismiss: "닫기",
   crisisDisclaimer:
-    "만나는 의료·심리 상담을 대체하지 않습니다. 위급한 상황에서는 전문가의 도움이 가장 안전합니다.",
+    "토닥은 의료·심리 상담을 대체하지 않습니다. 위급한 상황에서는 전문가의 도움이 가장 안전합니다.",
 
   shareWords: "이 글 나누기",
   copy: "복사",
@@ -209,7 +209,7 @@ const ko: FeatureStrings = {
   todayTitle: "오늘의 한 마디",
   todaySubtitle: "마음에 머무를 짧은 한 마디",
   todayShare: "오늘의 한 마디 나누기",
-  todayOpenApp: "만나 열기",
+  todayOpenApp: "토닥 열기",
 
   crossLinkSelahToMannaTitle: "기도가 필요하신가요?",
   crossLinkSelahToMannaBody:
@@ -334,7 +334,7 @@ const en: FeatureStrings = {
   todayTitle: "Today's words",
   todaySubtitle: "A short thought to carry today",
   todayShare: "Share today's words",
-  todayOpenApp: "Open MANNA",
+  todayOpenApp: "Open 토닥",
 
   crossLinkSelahToMannaTitle: "Need prayer?",
   crossLinkSelahToMannaBody:

@@ -19,7 +19,7 @@ export interface JourneyCardPoint {
 
 interface JourneyCardOptions {
   variant: "selah" | "manna";
-  brandLabel: string;          // SELAH / MANNA
+  brandLabel: string;          // SELAH / 토닥
   tagline?: string;
   title: string;               // "마음의 흐름"
   rangeLabel: string;          // "지난 30일"

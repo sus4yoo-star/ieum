@@ -163,7 +163,7 @@ export default function JourneyPage() {
 
       const svg = buildJourneyCardSvg({
         variant: "manna",
-        brandLabel: "MANNA",
+        brandLabel: "토닥",
         tagline: "Walk with you",
         title: fs.journeyTitle,
         rangeLabel,
@@ -198,7 +198,7 @@ export default function JourneyPage() {
       setShared(true);
       setTimeout(() => setShared(false), 1800);
     } catch (e) {
-      console.error("[MANNA] journey share failed:", e);
+      console.error("[토닥] journey share failed:", e);
     } finally {
       setSharing(false);
     }

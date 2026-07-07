@@ -27,7 +27,7 @@ export function NotificationHelpCard({
   lang,
 }: {
   reason: "denied" | "unsupported-ios" | "unsupported-other" | "vapid-missing";
-  brand: "SELAH" | "MANNA";
+  brand: "SELAH" | "토닥";
   lang: string;
 }) {
   const [open, setOpen] = React.useState(true);

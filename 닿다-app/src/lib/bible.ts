@@ -1,7 +1,7 @@
 import type { LangCode } from "./types";
 
 /**
- * MANNA is faith-neutral. What used to be a "Bible verse" block is now a
+ * 토닥 is faith-neutral. What used to be a "Bible verse" block is now a
  * short, universal grounding line. We keep the same type/function names so
  * the parser and UI need no structural change — only the wording differs,
  * and there is no translation/version label.

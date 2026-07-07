@@ -10,7 +10,7 @@
     --font-serif: "Noto Serif KR";
     --font-display: "Cormorant Garamond";
 
-    /* shadcn token mapping onto the MANNA teal + soft-gold system (HSL) */
+    /* shadcn token mapping onto the 토닥 teal + soft-gold system (HSL) */
     --background: 193 82% 9%;
     --foreground: 40 30% 93%;
     --card: 192 72% 12%;

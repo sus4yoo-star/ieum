@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "개인정보처리방침 | MANNA",
-  description: "만나(MANNA) 개인정보처리방침",
+  title: "개인정보처리방침 | 토닥",
+  description: "토닥 개인정보처리방침",
 };
 
 export default function PrivacyPage() {
@@ -14,7 +14,7 @@ export default function PrivacyPage() {
             href="/"
             className="text-sm text-neutral-500 hover:text-neutral-800 transition"
           >
-            ← 만나로 돌아가기
+            ← 토닥으로 돌아가기
           </Link>
         </div>
 
@@ -29,9 +29,9 @@ export default function PrivacyPage() {
           <section>
             <p className="text-neutral-700">
               아모브(AMOV, 이하 &quot;회사&quot;)는 정보통신망 이용촉진 및 정보보호
-              등에 관한 법률, 개인정보 보호법 등 관련 법령을 준수하며, 만나(MANNA,
+              등에 관한 법률, 개인정보 보호법 등 관련 법령을 준수하며, 토닥(
               이하 &quot;서비스&quot;) 이용자의 개인정보를 소중히 보호하기 위해
-              다음과 같은 처리방침을 두고 있습니다. 만나는 이용자가 마음을
+              다음과 같은 처리방침을 두고 있습니다. 토닥은 이용자가 마음을
               나누는 공간이므로, 대화 기록의 보호를 특히 중요하게 다룹니다.
             </p>
           </section>

@@ -72,7 +72,7 @@ export default function RemindersPage() {
 
   /* Re-check permission whenever the page becomes visible again. iOS PWA
    * users typically: tap "enable" → deny → realize → go to Settings.app →
-   * toggle SELAH/MANNA notifications back on → swipe back to the PWA.
+   * toggle SELAH/토닥 notifications back on → swipe back to the PWA.
    * At that point Notification.permission has flipped under us; we need to
    * pick it up without making them refresh. */
   React.useEffect(() => {
@@ -313,7 +313,7 @@ export default function RemindersPage() {
         {!supported && (
           <NotificationHelpCard
             reason="unsupported-other"
-            brand="MANNA"
+            brand="토닥"
             lang={lang}
           />
         )}
@@ -461,7 +461,7 @@ export default function RemindersPage() {
             {perm === "denied" && (
               <NotificationHelpCard
                 reason="denied"
-                brand="MANNA"
+                brand="토닥"
                 lang={lang}
               />
             )}

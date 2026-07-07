@@ -24,7 +24,7 @@ export default function GlobalError({
     // Surface the real cause to the browser console — Netlify only
     // shows the digest hash on the user's screen.
     // eslint-disable-next-line no-console
-    console.error("[MANNA] unhandled error:", error);
+    console.error("[토닥] unhandled error:", error);
   }, [error]);
 
   return (

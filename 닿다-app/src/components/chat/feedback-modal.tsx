@@ -27,18 +27,18 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
   const feedbackMap: Record<string, FbCopy> = {
     ko: {
       menu: "의견 남기기",
-      title: "MANNA는 어떠셨나요?",
+      title: "토닥는 어떠셨나요?",
       sub: "더 따뜻한 동행이 될 수 있도록, 칭찬이나 개선점을 들려주세요 😊",
       placeholder: "마음에 드신 점이나 아쉬운 점을 자유롭게 적어주세요…",
       emailPlaceholder: "",
       send: "보내기",
       sending: "보내는 중…",
-      thanks: "소중한 마음 고맙습니다 🌿 더 따뜻한 MANNA가 되겠습니다.",
+      thanks: "소중한 마음 고맙습니다 🌿 더 따뜻한 토닥가 되겠습니다.",
       error: "잠시 후 다시 시도해 주세요.",
     },
     en: {
       menu: "Feedback",
-      title: "How was MANNA for you?",
+      title: "How was 토닥 for you?",
       sub: "Help us become a warmer companion — share a kind word or what could be better 😊",
       placeholder: "Tell us what you liked or what we could improve…",
       emailPlaceholder: "",
@@ -49,7 +49,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     th: {
       menu: "ส่งความคิดเห็น",
-      title: "MANNA เป็นอย่างไรบ้าง?",
+      title: "토닥 เป็นอย่างไรบ้าง?",
       sub: "ช่วยให้เราอบอุ่นยิ่งขึ้น บอกคำชมหรือสิ่งที่ควรปรับปรุงได้เลย 😊",
       placeholder: "บอกสิ่งที่คุณชอบหรือสิ่งที่เราควรปรับปรุง…",
       emailPlaceholder: "",
@@ -60,7 +60,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     es: {
       menu: "Comentarios",
-      title: "¿Cómo te fue con MANNA?",
+      title: "¿Cómo te fue con 토닥?",
       sub: "Ayúdanos a ser una compañía más cálida: comparte un elogio o algo a mejorar 😊",
       placeholder: "Cuéntanos qué te gustó o qué podríamos mejorar…",
       emailPlaceholder: "",
@@ -71,7 +71,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     pt: {
       menu: "Comentários",
-      title: "Como foi o MANNA para você?",
+      title: "Como foi o 토닥 para você?",
       sub: "Ajude-nos a ser uma companhia mais acolhedora: deixe um elogio ou o que melhorar 😊",
       placeholder: "Conte o que você gostou ou o que podemos melhorar…",
       emailPlaceholder: "",
@@ -82,7 +82,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     hi: {
       menu: "प्रतिक्रिया",
-      title: "MANNA आपको कैसा लगा?",
+      title: "토닥 आपको कैसा लगा?",
       sub: "हमें और गर्मजोश बनने में मदद करें — तारीफ़ या सुधार बताइए 😊",
       placeholder: "जो अच्छा लगा या जो बेहतर हो सकता है, लिखें…",
       emailPlaceholder: "",
@@ -93,7 +93,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     zh: {
       menu: "反馈",
-      title: "MANNA 用得还好吗？",
+      title: "토닥 用得还好吗？",
       sub: "帮助我们成为更温暖的陪伴——说说赞美或可改进之处 😊",
       placeholder: "告诉我们你喜欢的或可以改进的地方…",
       emailPlaceholder: "",
@@ -104,7 +104,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     ja: {
       menu: "ご意見",
-      title: "MANNA はいかがでしたか?",
+      title: "토닥 はいかがでしたか?",
       sub: "より温かい伴走者になるために、良かった点や改善点をお聞かせください 😊",
       placeholder: "良かった点や改善できる点を自由にお書きください…",
       emailPlaceholder: "",
@@ -115,7 +115,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     "zh-TW": {
       menu: "意見回饋",
-      title: "MANNA 使用得還好嗎?",
+      title: "토닥 使用得還好嗎?",
       sub: "幫助我們成為更溫暖的陪伴 — 說說讚美或可改進之處 😊",
       placeholder: "告訴我們你喜歡的或可以改進的地方…",
       emailPlaceholder: "",
@@ -126,7 +126,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     fr: {
       menu: "Avis",
-      title: "Comment était MANNA pour vous ?",
+      title: "Comment était 토닥 pour vous ?",
       sub: "Aidez-nous à être un compagnon plus chaleureux — partagez un compliment ou ce qui pourrait être amélioré 😊",
       placeholder: "Dites-nous ce que vous avez aimé ou ce que nous pourrions améliorer…",
       emailPlaceholder: "",
@@ -137,7 +137,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     de: {
       menu: "Feedback",
-      title: "Wie war MANNA für dich?",
+      title: "Wie war 토닥 für dich?",
       sub: "Hilf uns, ein wärmerer Begleiter zu sein — teile ein nettes Wort oder Verbesserungsvorschläge 😊",
       placeholder: "Sag uns, was dir gefallen hat oder was wir verbessern könnten…",
       emailPlaceholder: "",
@@ -148,7 +148,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     it: {
       menu: "Feedback",
-      title: "Com'è stato MANNA per te?",
+      title: "Com'è stato 토닥 per te?",
       sub: "Aiutaci a essere un compagno più caloroso: condividi un complimento o cosa migliorare 😊",
       placeholder: "Raccontaci cosa ti è piaciuto o cosa potremmo migliorare…",
       emailPlaceholder: "",
@@ -159,7 +159,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     nl: {
       menu: "Feedback",
-      title: "Hoe was MANNA voor jou?",
+      title: "Hoe was 토닥 voor jou?",
       sub: "Help ons een warmere metgezel te worden — deel een compliment of wat beter kan 😊",
       placeholder: "Vertel ons wat je leuk vond of wat we kunnen verbeteren…",
       emailPlaceholder: "",
@@ -170,7 +170,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     ru: {
       menu: "Отзыв",
-      title: "Как тебе MANNA?",
+      title: "Как тебе 토닥?",
       sub: "Помоги нам стать теплее — поделись похвалой или тем, что можно улучшить 😊",
       placeholder: "Расскажи, что понравилось или что мы могли бы улучшить…",
       emailPlaceholder: "",
@@ -181,7 +181,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     uk: {
       menu: "Відгук",
-      title: "Як тобі MANNA?",
+      title: "Як тобі 토닥?",
       sub: "Допоможи нам стати теплішими — поділись похвалою або тим, що можна покращити 😊",
       placeholder: "Розкажи, що сподобалось або що ми могли б покращити…",
       emailPlaceholder: "",
@@ -192,7 +192,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     pl: {
       menu: "Opinia",
-      title: "Jak MANNA się sprawdził?",
+      title: "Jak 토닥 się sprawdził?",
       sub: "Pomóż nam być cieplejszym towarzyszem — podziel się pochwałą lub tym, co można poprawić 😊",
       placeholder: "Napisz, co Ci się podobało lub co możemy poprawić…",
       emailPlaceholder: "",
@@ -203,7 +203,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     cs: {
       menu: "Zpětná vazba",
-      title: "Jaký byl MANNA?",
+      title: "Jaký byl 토닥?",
       sub: "Pomoz nám být vřelejší — podělí se o pochvalu nebo to, co můžeme zlepšit 😊",
       placeholder: "Řekni nám, co se ti líbilo nebo co můžeme zlepšit…",
       emailPlaceholder: "",
@@ -214,7 +214,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     hu: {
       menu: "Visszajelzés",
-      title: "Milyen volt a MANNA?",
+      title: "Milyen volt a 토닥?",
       sub: "Segíts, hogy melegebb társ legyünk — oszd meg a dicséretet vagy mit fejleszthetnénk 😊",
       placeholder: "Mondd el, mi tetszett vagy mit fejleszthetnénk…",
       emailPlaceholder: "",
@@ -225,7 +225,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     ro: {
       menu: "Feedback",
-      title: "Cum a fost MANNA pentru tine?",
+      title: "Cum a fost 토닥 pentru tine?",
       sub: "Ajută-ne să fim un companion mai cald — împărtășește o laudă sau ce putem îmbunătăți 😊",
       placeholder: "Spune-ne ce ți-a plăcut sau ce am putea îmbunătăți…",
       emailPlaceholder: "",
@@ -236,7 +236,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     tr: {
       menu: "Geri Bildirim",
-      title: "MANNA sizin için nasıldı?",
+      title: "토닥 sizin için nasıldı?",
       sub: "Daha sıcak bir refakatçi olmamıza yardım edin — övgü veya iyileştirme önerilerinizi paylaşın 😊",
       placeholder: "Beğendiğiniz veya iyileştirebileceğimiz şeyleri yazın…",
       emailPlaceholder: "",
@@ -247,7 +247,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     vi: {
       menu: "Phản hồi",
-      title: "Bạn thấy MANNA thế nào?",
+      title: "Bạn thấy 토닥 thế nào?",
       sub: "Hãy giúp chúng tôi trở thành người bạn đồng hành ấm áp hơn — chia sẻ lời khen hoặc điều có thể cải thiện 😊",
       placeholder: "Hãy cho chúng tôi biết bạn thích điều gì hoặc chúng tôi có thể cải thiện điều gì…",
       emailPlaceholder: "",
@@ -258,7 +258,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     id: {
       menu: "Masukan",
-      title: "Bagaimana MANNA menurutmu?",
+      title: "Bagaimana 토닥 menurutmu?",
       sub: "Bantu kami menjadi pendamping yang lebih hangat — bagikan pujian atau apa yang bisa diperbaiki 😊",
       placeholder: "Ceritakan apa yang kamu suka atau apa yang bisa kami perbaiki…",
       emailPlaceholder: "",
@@ -269,7 +269,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     ms: {
       menu: "Maklum Balas",
-      title: "Bagaimana MANNA pada anda?",
+      title: "Bagaimana 토닥 pada anda?",
       sub: "Bantu kami menjadi teman yang lebih hangat — kongsikan pujian atau apa yang boleh diperbaiki 😊",
       placeholder: "Beritahu kami apa yang anda suka atau apa yang boleh diperbaiki…",
       emailPlaceholder: "",
@@ -280,7 +280,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     tl: {
       menu: "Puna",
-      title: "Kumusta ang MANNA sa iyo?",
+      title: "Kumusta ang 토닥 sa iyo?",
       sub: "Tulungan mo kaming maging mas mainit na kasama — magbahagi ng papuri o kung ano ang puwedeng pahusayin 😊",
       placeholder: "Sabihin sa amin kung ano ang nagustuhan mo o kung ano ang puwede naming pahusayin…",
       emailPlaceholder: "",
@@ -291,7 +291,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     bn: {
       menu: "মতামত",
-      title: "MANNA আপনার কাছে কেমন লাগল?",
+      title: "토닥 আপনার কাছে কেমন লাগল?",
       sub: "আমাদের আরও উষ্ণ সঙ্গী হতে সাহায্য করুন — প্রশংসা বা উন্নতির পরামর্শ দিন 😊",
       placeholder: "আপনার যা ভালো লেগেছে বা আমরা কী উন্নত করতে পারি, লিখুন…",
       emailPlaceholder: "",
@@ -302,7 +302,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     ta: {
       menu: "கருத்து",
-      title: "MANNA உங்களுக்கு எப்படி இருந்தது?",
+      title: "토닥 உங்களுக்கு எப்படி இருந்தது?",
       sub: "மிக அன்பான துணையாக மாற எங்களுக்கு உதவுங்கள் — பாராட்டு அல்லது மேம்படுத்த வேண்டியதைப் பகிருங்கள் 😊",
       placeholder: "உங்களுக்குப் பிடித்தது அல்லது மேம்படுத்தலாம் என நினைப்பதைச் சொல்லுங்கள்…",
       emailPlaceholder: "",
@@ -313,7 +313,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     te: {
       menu: "అభిప్రాయం",
-      title: "MANNA మీకు ఎలా అనిపించింది?",
+      title: "토닥 మీకు ఎలా అనిపించింది?",
       sub: "మరింత వెచ్చని తోడుగా మారడానికి సహాయపడండి — ప్రశంసలు లేదా మెరుగుపరచగలిగే విషయాలను చెప్పండి 😊",
       placeholder: "మీకు నచ్చింది లేదా మెరుగుపరచగలిగే విషయాలను చెప్పండి…",
       emailPlaceholder: "",
@@ -324,7 +324,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     ar: {
       menu: "ملاحظات",
-      title: "كيف كان MANNA بالنسبة لك؟",
+      title: "كيف كان 토닥 بالنسبة لك؟",
       sub: "ساعدنا لنكون رفيقًا أدفأ — شارك إطراءً أو ما يمكن تحسينه 😊",
       placeholder: "أخبرنا بما أعجبك أو ما يمكننا تحسينه…",
       emailPlaceholder: "",
@@ -335,7 +335,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     fa: {
       menu: "بازخورد",
-      title: "MANNA برایت چطور بود؟",
+      title: "토닥 برایت چطور بود؟",
       sub: "کمکمان کن همراهی گرم‌تری باشیم — تعریف یا پیشنهاد بهبود را به اشتراک بگذار 😊",
       placeholder: "بگو چه چیزی را دوست داشتی یا چه چیزی را می‌توانیم بهتر کنیم…",
       emailPlaceholder: "",
@@ -346,7 +346,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     },
     sw: {
       menu: "Maoni",
-      title: "MANNA ulikuwaje kwako?",
+      title: "토닥 ulikuwaje kwako?",
       sub: "Tusaidie kuwa mwenzi mwenye joto zaidi — shiriki sifa au kile tunachoweza kuboresha 😊",
       placeholder: "Tuambie ulichopenda au tunachoweza kuboresha…",
       emailPlaceholder: "",
@@ -361,7 +361,7 @@ function fbCopy(lang: string, kind: FeedbackKind): FbCopy {
     ko: {
       menu: "문의하기",
       title: "무엇이든 물어보세요",
-      sub: "MANNA를 사용하시면서 궁금하거나 불편한 점이 있으신가요? 알려주시면 빠르게 답변드리겠습니다.",
+      sub: "토닥를 사용하시면서 궁금하거나 불편한 점이 있으신가요? 알려주시면 빠르게 답변드리겠습니다.",
       placeholder: "문의하실 내용을 자유롭게 적어주세요…",
       emailPlaceholder: "답변받을 이메일 (선택)",
       send: "보내기",

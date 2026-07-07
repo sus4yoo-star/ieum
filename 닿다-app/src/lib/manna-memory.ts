@@ -100,7 +100,7 @@ export async function loadUserMemory(supabase: any, userId: string): Promise<Man
     if (error || !data) return { ...EMPTY_MEMORY };
     return normalizeMemory({ ...(data.memory || {}), updated_at: data.updated_at });
   } catch {
-    // The table may not exist yet. MANNA must still work.
+    // The table may not exist yet. 토닥 must still work.
     return { ...EMPTY_MEMORY };
   }
 }
@@ -140,7 +140,7 @@ export async function updateUserMemory({
   try {
     if (!userText.trim() || !assistantText.trim()) return;
 
-    const prompt = `You update MANNA's long-term companion conversation memory.
+    const prompt = `You update 토닥's long-term companion conversation memory.
 
 Return ONLY compact JSON with this exact shape:
 {

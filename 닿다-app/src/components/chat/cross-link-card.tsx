@@ -6,11 +6,11 @@ import { useLanguage } from "@/components/language-provider";
 import { getFeatureStrings } from "@/lib/feature-strings";
 
 /**
- * Soft cross-promo card from SELAH → MANNA.
+ * Soft cross-promo card from SELAH → 토닥.
  *
  * Shown once per device after the user has had at least 3 real
  * conversations. Idea: a SELAH user who is going through a faith-neutral
- * grief / anxiety moment may welcome MANNA's faith-agnostic tone, and
+ * grief / anxiety moment may welcome 토닥's faith-agnostic tone, and
  * vice versa. Dismissable; remembers via localStorage forever.
  */
 const SEEN_KEY = "manna_cross_link_seen";

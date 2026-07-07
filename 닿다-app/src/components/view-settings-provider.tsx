@@ -8,7 +8,7 @@ import * as React from "react";
  * assistant replies should auto-speak via the browser's TTS.
  *
  * All three persist to localStorage with a SELAH-specific prefix so
- * MANNA and SELAH don't share state when both are installed on the
+ * 토닥 and SELAH don't share state when both are installed on the
  * same device.
  *
  * Font-size is exposed as a CSS variable (--chat-font-size) so any

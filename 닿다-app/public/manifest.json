@@ -1,12 +1,12 @@
 {
-  "name": "MANNA",
-  "short_name": "MANNA",
-  "description": "당신이 어디에 있든, 힘든 순간 판단 없이 함께 걷는 마음 동행. 당신은 혼자가 아닙니다.",
+  "name": "토닥",
+  "short_name": "토닥",
+  "description": "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#03212a",
-  "theme_color": "#03212a",
+  "background_color": "#16152b",
+  "theme_color": "#16152b",
   "orientation": "portrait",
   "icons": [
     {

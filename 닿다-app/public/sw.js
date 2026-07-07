@@ -1,4 +1,4 @@
-/* MANNA service worker, v6.
+/* 토닥 service worker, v6.
  *
  * v6 changes: PWA-critical files (manifest.json, /icon-*.png, apple-touch
  * icons) are now ALWAYS fetched from the network so iOS can read the
@@ -127,7 +127,7 @@ self.addEventListener("message", (e) => {
 /* ── Web Push ────────────────────────────────────────────────────── */
 self.addEventListener("push", (e) => {
   let data = {
-    title: "MANNA",
+    title: "토닥",
     body: "오늘 하루, 자신에게 한 번 부드러워지는 시간을.",
     url: "/chat",
   };

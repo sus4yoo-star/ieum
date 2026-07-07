@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "이용약관 | MANNA",
-  description: "만나(MANNA) 서비스 이용약관",
+  title: "이용약관 | 토닥",
+  description: "토닥 서비스 이용약관",
 };
 
 export default function TermsPage() {
@@ -14,7 +14,7 @@ export default function TermsPage() {
             href="/"
             className="text-sm text-neutral-500 hover:text-neutral-800 transition"
           >
-            ← 만나로 돌아가기
+            ← 토닥으로 돌아가기
           </Link>
         </div>
 
@@ -31,7 +31,7 @@ export default function TermsPage() {
             지금 힘드시다면 — 먼저 읽어주세요
           </p>
           <p className="text-sm text-rose-900/90 leading-relaxed mb-3">
-            만나는 마음의 동행을 위한 AI 대화 서비스이며,{" "}
+            토닥은 마음의 동행을 위한 AI 대화 서비스이며,{" "}
             <strong>의료·심리 상담을 대체하지 않습니다.</strong> 자해, 자살,
             폭력 등의 위기 상황에서는 반드시 아래 전문 기관에 즉시 연락해주세요.
           </p>
@@ -50,7 +50,7 @@ export default function TermsPage() {
             <h2 className="text-lg font-semibold mt-0 mb-3">제1조 (목적)</h2>
             <p>
               본 약관은 아모브(AMOV, 이하 &quot;회사&quot;)가 제공하는
-              만나(MANNA, 이하 &quot;서비스&quot;)의 이용과 관련하여 회사와
+              토닥(이하 &quot;서비스&quot;)의 이용과 관련하여 회사와
               이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.
             </p>
           </section>
@@ -59,7 +59,7 @@ export default function TermsPage() {
             <h2 className="text-lg font-semibold mb-3">제2조 (정의)</h2>
             <ol className="list-decimal pl-6 space-y-1">
               <li>
-                &quot;서비스&quot;란 회사가 제공하는 만나(MANNA) 웹·모바일
+                &quot;서비스&quot;란 회사가 제공하는 토닥 웹·모바일
                 플랫폼 및 관련 일체의 서비스를 의미합니다.
               </li>
               <li>
@@ -95,12 +95,12 @@ export default function TermsPage() {
             <h2 className="text-lg font-semibold mb-3">제4조 (서비스의 성격)</h2>
             <ol className="list-decimal pl-6 space-y-1">
               <li>
-                만나는 일상에서 마음의 어려움을 나누고 위로받을 수 있도록
+                토닥은 일상에서 마음의 어려움을 나누고 위로받을 수 있도록
                 설계된 AI 기반 대화 서비스입니다.
               </li>
               <li>
                 <strong>
-                  만나는 의료 행위, 심리 상담, 정신과적 진단·치료를 제공하지
+                  토닥은 의료 행위, 심리 상담, 정신과적 진단·치료를 제공하지
                   않으며, 의사·임상심리사·정신건강전문요원의 전문적 도움을
                   대체하지 않습니다.
                 </strong>

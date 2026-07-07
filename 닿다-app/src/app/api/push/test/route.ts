@@ -40,7 +40,7 @@ export async function POST() {
   for (const s of subsArr) {
     const res = await sendPush(
       { endpoint: s.endpoint, keys: { p256dh: s.p256dh, auth: s.auth } },
-      { title: "MANNA", body, url: "/chat" }
+      { title: "토닥", body, url: "/chat" }
     );
     if (res.ok) {
       sent++;

@@ -23,7 +23,7 @@ export function Logo({
     <Link
       href={href}
       className="group flex items-center gap-2.5 outline-none"
-      aria-label="MANNA home"
+      aria-label="토닥 home"
     >
       <img
         src="/symbol-transparent.png"
@@ -40,7 +40,7 @@ export function Logo({
             name
           )}
         >
-          MANNA
+          토닥
         </span>
         {showSub && subLabel ? (
           <span className="block text-[11px] tracking-wide text-selah-cream3">

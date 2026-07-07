@@ -40,7 +40,7 @@ const IOS_STEPS: Step[] = [
   {
     icon: <Smartphone className="h-5 w-5" />,
     title: "오른쪽 위 ‘추가’ 누르기",
-    desc: "‘추가’를 누르면 홈 화면에 MANNA 앱 아이콘이 생깁니다.",
+    desc: "‘추가’를 누르면 홈 화면에 토닥 앱 아이콘이 생깁니다.",
   },
 ];
 
@@ -63,7 +63,7 @@ const ANDROID_STEPS: Step[] = [
   {
     icon: <Smartphone className="h-5 w-5" />,
     title: "‘추가’ 또는 ‘설치’ 누르기",
-    desc: "확인을 누르면 홈 화면에 MANNA 앱 아이콘이 생깁니다.",
+    desc: "확인을 누르면 홈 화면에 토닥 앱 아이콘이 생깁니다.",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function InstallPage() {
           />
           <img
             src="/symbol-transparent.png"
-            alt="MANNA"
+            alt="토닥"
             className="relative h-24 w-32 object-contain drop-shadow-[0_0_22px_rgba(212,175,55,0.38)]"
           />
         </div>
@@ -103,7 +103,7 @@ export default function InstallPage() {
         <h1
           className="mb-1.5 text-center font-display text-3xl font-semibold tracking-[0.18em] text-selah-gold animate-rise"
           style={{ animationDelay: "0.05s" }}
-        >MANNA</h1>
+        >토닥</h1>
         <p
           className="mb-4 text-center text-[13px] tracking-[0.08em] text-selah-cream3 animate-rise"
           style={{ animationDelay: "0.08s" }}
@@ -114,7 +114,7 @@ export default function InstallPage() {
           className="mb-1 text-center text-[17px] font-medium text-selah-cream animate-rise"
           style={{ animationDelay: "0.1s" }}
         >
-          MANNA를 앱처럼 사용하세요
+          토닥를 앱처럼 사용하세요
         </p>
         <p
           className="mb-8 max-w-xs text-center text-[13px] leading-relaxed text-selah-cream3 animate-rise"
@@ -181,7 +181,7 @@ export default function InstallPage() {
           ))}
         </div>
 
-        {/* Open MANNA */}
+        {/* Open 토닥 */}
         <Button
           asChild
           size="lg"
@@ -189,7 +189,7 @@ export default function InstallPage() {
           style={{ animationDelay: "0.3s" }}
         >
           <Link href="/">
-            MANNA 열기
+            토닥 열기
             <ArrowRight className="h-4 w-4" />
           </Link>
         </Button>
