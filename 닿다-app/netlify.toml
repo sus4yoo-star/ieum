@@ -1,6 +1,7 @@
-# base(닿다-app) 내부 netlify.toml — 시크릿 스캔 오탐 방지
+# base(닿다-app) 내부 netlify.toml
 [build]
   command = "next build"
+  publish = ".next"
 
 [build.environment]
   SECRETS_SCAN_ENABLED = "false"

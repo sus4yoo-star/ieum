@@ -2,10 +2,8 @@
 [build]
   base = "닿다-app"
   command = "next build"
+  publish = ".next"
 
-# Next.js를 Netlify에 올리면 서버/엣지 함수 번들에 env 값이 들어가는 게 정상 동작.
-# Netlify 시크릿 스캐너가 이를 오탐해 빌드를 막으므로 스캔을 끔.
-# (공개용 Supabase URL/anon 키이며, service_role는 서버 함수에서만 사용 — 브라우저 노출 아님)
 [build.environment]
   SECRETS_SCAN_ENABLED = "false"
 
