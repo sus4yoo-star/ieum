@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#16152b">
+<title>닿다 · 힐러의 화면 (시연)</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#16152b; --night2:#211f3d;
+    --cream:#f6f1ea; --mute:#a9a4c4; --line:rgba(255,255,255,.10);
+    --rose:#e98fa6; --amber:#f5c07a; --amber-d:#e9a24e; --amber-dd:#d98e34;
+    --ai:#3b3763; --heal:#f4e6dd; --green:#8fe0ae; --green-d:#5cbf88;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;}
+  body{font-family:'Pretendard',sans-serif;background:#0e0d1c;color:var(--cream);
+    display:flex;align-items:center;justify-content:center;padding:16px;overflow:hidden;-webkit-font-smoothing:antialiased;}
+  .phone{width:340px;max-width:100%;height:min(720px,94vh);background:linear-gradient(180deg,#1b1934,#16152b 55%,#191636);
+    border-radius:38px;padding:14px;box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04);position:relative;overflow:hidden;}
+  .screen{width:100%;height:100%;display:flex;flex-direction:column;position:relative;}
+
+  .top{display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 0 12px;flex:none;position:relative;}
+  .wm{font-family:'Noto Serif KR',serif;font-weight:700;font-size:18px;letter-spacing:.05em;color:var(--cream);}
+  .wm .dot{color:var(--amber);}
+  .wm .role{font-family:'Pretendard';font-weight:700;font-size:11px;color:var(--amber);background:rgba(245,192,122,.14);padding:2px 9px;border-radius:11px;margin-left:6px;letter-spacing:0;}
+  .dots{position:absolute;right:2px;top:12px;display:flex;gap:5px;}
+  .dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.16);transition:.3s;}
+  .dots i.on{background:var(--amber);width:16px;border-radius:3px;}
+
+  .stage{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding:4px 4px 8px;}
+  .stage::-webkit-scrollbar{display:none;}
+  .step{display:none;flex-direction:column;min-height:100%;animation:rise .5s cubic-bezier(.2,.8,.25,1);}
+  .step.on{display:flex;}
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+
+  .center{margin:auto 0;text-align:center;padding:8px 10px;}
+  .kick{font-size:12px;letter-spacing:.26em;color:var(--amber);font-weight:700;margin-bottom:18px;}
+  h1{font-family:'Noto Serif KR',serif;font-weight:500;font-size:22px;line-height:1.6;}
+  h1 b{font-weight:700;color:var(--amber);}
+  .sub{font-size:13.5px;color:var(--mute);line-height:1.75;margin-top:14px;}
+
+  /* seeker request card (힐러가 봄) */
+  .req{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:20px;padding:17px;margin:4px 2px 12px;}
+  .req .r-head{display:flex;align-items:center;gap:12px;}
+  .req .face{width:48px;height:48px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:22px;background:linear-gradient(135deg,#4a4570,#6b6499);}
+  .req .r-name{font-weight:700;font-size:15px;}
+  .req .r-meta{font-size:11.5px;color:var(--mute);margin-top:2px;}
+  .req .r-meta b{color:var(--rose);}
+  .req .r-quote{font-size:13.5px;line-height:1.6;color:var(--cream);background:rgba(233,143,166,.08);border-left:3px solid var(--rose);border-radius:0 10px 10px 0;padding:11px 13px;margin-top:13px;}
+  .req .r-mood{margin-top:11px;display:flex;gap:6px;flex-wrap:wrap;}
+  .req .r-mood span{font-size:11px;color:var(--mute);border:1px solid var(--line);border-radius:20px;padding:4px 10px;}
+
+  .rules{background:rgba(143,224,174,.07);border:1px solid rgba(143,224,174,.22);border-radius:16px;padding:14px;margin:2px 2px 6px;}
+  .rules .rt{font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:9px;display:flex;align-items:center;gap:6px;}
+  .rules ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+  .rules li{font-size:12.5px;color:#cfeadd;line-height:1.5;padding-left:20px;position:relative;}
+  .rules li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800;}
+
+  /* chat */
+  .who{font-size:11px;color:var(--mute);margin:2px 6px 6px;display:flex;align-items:center;gap:6px;}
+  .who .tag{background:rgba(233,143,166,.16);color:var(--rose);font-weight:700;padding:1px 7px;border-radius:10px;font-size:10px;}
+  .chat{display:flex;flex-direction:column;gap:11px;padding:2px 2px;}
+  .msg{max-width:82%;padding:12px 15px;border-radius:19px;font-size:13.7px;line-height:1.6;opacity:0;transform:translateY(8px);animation:pop .45s forwards;}
+  @keyframes pop{to{opacity:1;transform:none;}}
+  .msg.seek{background:#312d52;color:var(--cream);border-bottom-left-radius:6px;align-self:flex-start;}
+  .msg.me{background:linear-gradient(135deg,var(--amber),var(--amber-d));color:#4a370f;border-bottom-right-radius:6px;align-self:flex-end;font-weight:500;}
+  .assist{align-self:stretch;background:rgba(59,55,99,.5);border:1px dashed rgba(169,164,196,.4);border-radius:14px;padding:10px 13px;font-size:12px;color:#c7c2e4;line-height:1.55;}
+  .assist b{color:var(--amber);}
+
+  .lock{align-self:center;font-size:11px;color:var(--mute);background:rgba(255,255,255,.05);border-radius:20px;padding:5px 12px;margin:2px 0;}
+
+  /* closing */
+  .done .big{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;background:radial-gradient(circle at 60% 40%,#eafff2,var(--green) 75%);box-shadow:0 0 40px -6px rgba(143,224,174,.5);display:flex;align-items:center;justify-content:center;font-size:30px;}
+  .thanks{background:rgba(233,143,166,.09);border:1px solid rgba(233,143,166,.2);border-radius:16px;padding:14px;font-size:13px;color:#f3d8e0;line-height:1.6;margin:6px 0 4px;font-family:'Noto Serif KR',serif;}
+  .reward{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:13px 16px;margin-top:12px;}
+  .reward .l{font-size:12.5px;color:var(--mute);}
+  .reward .v{font-weight:800;font-size:15px;color:var(--amber);}
+  .rnote{font-size:11px;color:var(--mute);margin-top:10px;line-height:1.55;}
+
+  .foot{flex:none;padding:12px 4px 4px;}
+  .btn{width:100%;border:none;font-family:inherit;font-weight:700;font-size:15px;padding:15px;border-radius:16px;cursor:pointer;
+    background:linear-gradient(135deg,var(--amber),var(--amber-d));color:#4a370f;box-shadow:0 12px 26px -12px var(--amber-d);transition:.15s;}
+  .btn:active{transform:scale(.98);}
+  .btn.soft{background:rgba(255,255,255,.07);color:var(--cream);box-shadow:none;border:1px solid var(--line);}
+  .hint{text-align:center;font-size:11px;color:var(--mute);margin-top:9px;opacity:.7;}
+</style>
+</head>
+<body>
+<div class="phone"><div class="screen">
+  <div class="top">
+    <span class="wm">닿<span class="dot">·</span>다<span class="role">힐러</span></span>
+    <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="stage" id="stage">
+
+    <!-- 0. 힐러 홈 -->
+    <div class="step on" data-i="0">
+      <div class="center">
+        <div class="kick">여리 님, 안녕하세요</div>
+        <h1>지금, 누군가에게<br>당신의 <b>마음이 필요해요.</b></h1>
+        <div class="sub">한 사람이 마음을 다치고, 그 사람의 시선을 궁금해해요.<br>여성의 자리에서, 그 마음을 비춰줄 수 있는 건 당신이에요.</div>
+      </div>
+    </div>
+
+    <!-- 1. 요청 미리보기 + 규칙 -->
+    <div class="step" data-i="1">
+      <div class="req">
+        <div class="r-head">
+          <div class="face">🌧️</div>
+          <div>
+            <div class="r-name">건우 · 27</div>
+            <div class="r-meta"><b>여성의 시선</b>을 듣고 싶어해요 · 방금 도착</div>
+          </div>
+        </div>
+        <div class="r-quote">"용기 내서 고백했는데 거절당했어요. 그 사람은 대체 무슨 마음이었을까요…"</div>
+        <div class="r-mood"><span>#거절</span><span>#자책</span><span>#늦은밤</span></div>
+      </div>
+      <div class="rules">
+        <div class="rt">🕊️ 이 대화의 약속</div>
+        <ul>
+          <li>목적은 <b style="color:#eafff2">이해와 치유</b>예요. 만남·연애가 아니에요.</li>
+          <li>대화는 <b style="color:#eafff2">앱 안에서만</b>. 연락처 교환은 금지예요.</li>
+          <li>상대의 마음을 <b style="color:#eafff2">통역</b>해주고, 그를 낫게 해주세요.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. 대화 -->
+    <div class="step" data-i="2">
+      <div class="who">건우 · 27 <span class="tag">찾는 사람</span></div>
+      <div class="chat" id="chat"></div>
+    </div>
+
+    <!-- 3. 마무리 -->
+    <div class="step" data-i="3">
+      <div class="center done">
+        <div class="big">🌱</div>
+        <div class="kick" style="color:var(--green)">대화가 잘 닫혔어요</div>
+        <div class="thanks">"덕분에 오늘 밤은 조금 숨이 쉬어져요.<br>제 탓이 아니라고 해주셔서… 고마워요."<br><span style="font-size:11px;color:var(--mute)">— 건우 님의 인사</span></div>
+        <div class="reward">
+          <span class="l">세션 완료 · 마음 하나를 도왔어요</span>
+          <span class="v">+1</span>
+        </div>
+        <div class="rnote">보상은 <b style="color:var(--cream)">머문 시간이 아니라, 도운 마음</b>으로 쌓여요. 오래 붙잡을 이유가 없어요. 잘 낫게 할수록 좋은 힐러예요.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <button class="btn" id="next" onclick="next()">기다리는 분 보기</button>
+    <div class="hint" id="hint">천천히 눌러보세요 · 시연</div>
+  </div>
+</div></div>
+
+<script>
+  const chat=[
+    {t:'seek',x:'그 사람은… 왜 그랬을까요.<br>내가 그렇게 별로였나 봐요.'},
+    {t:'assist',x:'<b>닿다 도움말</b> · 상대를 대신 판단하지 말고, "그럴 수 있는 마음"을 넓혀주세요. 그를 탓하지도, 헛된 희망을 주지도 않게.'},
+    {t:'me',x:'같은 여자로서 말해볼게요. 갑자기 마음을 받으면, 별로여서가 아니라 놀라서 물러서는 경우가 정말 많아요.'},
+    {t:'seek',x:'…그럴 수도 있을까요.'},
+    {t:'me',x:'그럼요. 거절은 "넌 부족해"가 아니라 "지금 내 마음은 여기까지"라는 말에 가까워요. 그건 건우 님의 값이 아니에요.'},
+    {t:'me',x:'그리고 — 진심을 전한 그 용기, 저는 멋지다고 생각해요. 정말로요.'},
+  ];
+  const steps=['기다리는 분 보기','이 마음, 함께할게요','대화 잘 마치기','다시 처음부터'];
+  let i=0, typing=false;
+
+  function render(){
+    document.querySelectorAll('.step').forEach(s=>s.classList.toggle('on',+s.dataset.i===i));
+    document.querySelectorAll('.dots i').forEach((d,k)=>d.classList.toggle('on',k===i));
+    document.getElementById('next').textContent=steps[i];
+    document.getElementById('next').className='btn'+(i===3?' soft':'');
+    document.getElementById('hint').style.visibility=i===3?'hidden':'visible';
+    document.getElementById('stage').scrollTop=0;
+    if(i===2) pour();
+  }
+  function pour(){
+    const box=document.getElementById('chat'); if(box.dataset.done) return;
+    box.dataset.done='1'; typing=true; setBtn(false);
+    chat.forEach((m,k)=>{
+      setTimeout(()=>{
+        const el=document.createElement('div');
+        el.className = m.t==='assist'?'assist':('msg '+m.t);
+        el.innerHTML=m.x; box.appendChild(el);
+        document.getElementById('stage').scrollTop=document.getElementById('stage').scrollHeight;
+        if(k===chat.length-1){typing=false;setBtn(true);}
+      }, k*950);
+    });
+  }
+  function setBtn(on){const b=document.getElementById('next');b.style.opacity=on?'1':'.45';b.style.pointerEvents=on?'auto':'none';}
+  function next(){
+    if(typing) return;
+    if(i===3){i=0;const c=document.getElementById('chat');c.innerHTML='';delete c.dataset.done;render();return;}
+    i++; render();
+  }
+  render();
+</script>
+</body>
+</html>
