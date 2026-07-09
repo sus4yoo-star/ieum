@@ -49,22 +49,26 @@ const config: Config = {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        // 토닥 brand palette — deep night indigo + warm dawn amber
+        // 셀라 brand palette — 헤리티지 녹턴(01) 뼈대 + 딥 문라이트(02) 절제
+        // 방(바탕)은 더 푸른 인디고, 온기(심볼/브랜드)는 던 앰버 유지,
+        // 강조·공유는 문 실버 + 여린 장미.
         // (token names kept as `selah-*` so every component recolors automatically)
         selah: {
-          bg: "#16152b",
-          bg1: "#1b1934",
-          bg2: "#211f3d",
-          bg3: "#2a2740",
-          bg4: "#35315a",
-          navy: "#211f3d",
+          bg: "#14162b",
+          bg1: "#1a1c33",
+          bg2: "#20233d",
+          bg3: "#292c46",
+          bg4: "#343759",
+          navy: "#20233d",
           gold: "#f0b274",
           gold2: "#e0975a",
           glow: "rgba(240,178,116,0.14)",
-          cream: "#f6f1ea",
+          moon: "#b9c4ee",
+          rose: "#efc0cf",
+          cream: "#f5f1ea",
           cream2: "#cbc6e0",
           cream3: "#8b86a8",
-          verse: "#211f3d",
+          verse: "#20233d",
         },
       },
       fontFamily: {

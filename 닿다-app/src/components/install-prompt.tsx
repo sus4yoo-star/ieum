@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { X, Share, Plus, Download } from "lucide-react";
 import { useLanguage } from "@/components/language-provider";
+import { SelahMark } from "@/components/selah-mark";
 
 const HIDE_KEY = "manna_install_prompt_hidden_until";
 const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
@@ -89,11 +90,7 @@ export function InstallPrompt() {
 
       <div className="flex items-start gap-3 pr-7">
         <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-selah-gold/25 bg-selah-gold/[0.08]">
-          <img
-            src="/symbol-transparent.png"
-            alt=""
-            className="h-7 w-7 object-contain"
-          />
+          <SelahMark className="h-7 w-7 text-selah-gold" />
         </span>
         <div className="min-w-0">
           <p className="text-[15px] font-semibold text-selah-gold">
