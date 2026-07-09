@@ -9,7 +9,7 @@ import { normalizeLang, isRTL } from "@/lib/i18n";
 import type { LangCode } from "@/lib/types";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://todakamov.netlify.app"),
+  metadataBase: new URL("https://selah.theamov.com"),
 
   title: {
     default: "셀라 — 잠시 멈추어, 마음을 내려놓는 곳",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title: "셀라 — 잠시 멈추어, 마음을 내려놓는 곳",
     description:
       "지치고 무거운 밤, 판단 없이 곁에 있어줄게요. 무엇을 안고 왔든, 당신은 그 자체로 소중해요.",
-    url: "https://todakamov.netlify.app",
+    url: "https://selah.theamov.com",
     siteName: "셀라",
     locale: "ko_KR",
     type: "website",
