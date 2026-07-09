@@ -32,7 +32,7 @@ export function Splash() {
       style={{
         position: "fixed",
         inset: 0,
-        background: "#16152b",
+        background: "#14162b",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -53,18 +53,22 @@ export function Splash() {
             animation: "selahSplashAura 2.4s ease-in-out infinite",
           }}
         />
-        <img
-          src="/symbol-transparent.png"
-          alt=""
+        <svg
+          viewBox="0 0 100 100"
+          fill="none"
+          aria-hidden
           style={{
             position: "relative",
             width: "100%",
             height: "100%",
-            objectFit: "contain",
-            filter: "drop-shadow(0 0 26px rgba(212,175,55,0.4))",
+            filter: "drop-shadow(0 0 26px rgba(240,178,116,0.4))",
             animation: "selahSplashBreathe 2.4s ease-in-out infinite",
           }}
-        />
+        >
+          <circle cx="50" cy="50" r="34" stroke="#f0b274" strokeWidth="1.5" opacity="0.38" />
+          <circle cx="50" cy="50" r="22" stroke="#f0b274" strokeWidth="1.8" opacity="0.75" />
+          <circle cx="50" cy="50" r="8.5" fill="#f0b274" />
+        </svg>
       </div>
 
       {/* Inline keyframes so the splash works even before any CSS bundle

@@ -75,7 +75,7 @@ export default function AddToHomePrompt() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-[9999] px-4 pb-4 sm:flex sm:justify-center">
-      <div className="w-full max-w-md rounded-3xl border border-[#d8b86a]/30 bg-[#16152b]/95 p-5 text-white shadow-2xl backdrop-blur-md">
+      <div className="w-full max-w-md rounded-3xl border border-[#d8b86a]/30 bg-[#14162b]/95 p-5 text-white shadow-2xl backdrop-blur-md">
         <div className="flex items-start gap-4">
           <img src="/icon-192.png" alt="셀라" className="h-12 w-12 rounded-2xl shadow-lg" />
           <div className="flex-1">
@@ -104,7 +104,7 @@ export default function AddToHomePrompt() {
             type="button"
             onClick={install}
             disabled={!deferredPrompt}
-            className="mt-4 w-full rounded-2xl bg-[#d8b86a] px-4 py-3 text-sm font-bold text-[#16152b] shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-4 w-full rounded-2xl bg-[#d8b86a] px-4 py-3 text-sm font-bold text-[#14162b] shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
           >
             홈 화면에 추가하기
           </button>

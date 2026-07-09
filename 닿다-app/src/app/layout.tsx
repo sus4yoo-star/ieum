@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#16152b",
+  themeColor: "#14162b",
   width: "device-width",
   initialScale: 1,
   // Allow pinch-zoom for accessibility — 셀라 must stay reachable for
@@ -110,7 +110,7 @@ export default async function RootLayout({
     >
       <body
         className="min-h-dvh antialiased"
-        style={{ backgroundColor: "#16152b" }}
+        style={{ backgroundColor: "#14162b" }}
       >
         <Splash />
         <LanguageProvider initialLang={initialLang}>

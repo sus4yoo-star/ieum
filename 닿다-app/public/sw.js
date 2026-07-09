@@ -12,7 +12,7 @@
  *   - Static assets (JS/CSS bundles)     → stale-while-revalidate.
  *   - API / auth / Supabase              → bypass entirely.
  */
-const CACHE = "selah-shell-v7";
+const CACHE = "selah-shell-v8";
 
 const PRECACHE = [
   "/",
