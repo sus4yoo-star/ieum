@@ -107,7 +107,7 @@ function PrayerShareActions({
         brandLabel,
         tagline: variant === "selah" ? "Pause before you respond" : "Walk with you",
         body: text,
-        footer: variant === "selah" ? "selah.theamov.com" : "todakamov.netlify.app",
+        footer: variant === "selah" ? "selah.theamov.com" : "selah.theamov.com",
       });
       const blob = await svgToPngBlob(svg);
       const file = new File([blob], `${variant}-${Date.now()}.png`, {

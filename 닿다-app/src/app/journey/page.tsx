@@ -177,7 +177,7 @@ export default function JourneyPage() {
         topFeelings,
         topFeelingsTitle: fs.journeyRecent,
         disclaimer: fs.journeyDisclaimer,
-        footer: "todakamov.netlify.app",
+        footer: "selah.theamov.com",
       });
       const blob = await svgToPngBlob(svg);
       const file = new File([blob], `manna-journey-${Date.now()}.png`, { type: "image/png" });
