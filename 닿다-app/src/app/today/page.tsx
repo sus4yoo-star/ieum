@@ -10,7 +10,7 @@ import { useLanguage } from "@/components/language-provider";
 import { getFeatureStrings } from "@/lib/feature-strings";
 
 /**
- * "오늘의 한 마디" — a daily reflection card for 토닥.
+ * "오늘의 한 마디" — a daily reflection card for 셀라.
  *
  * Faith-neutral on purpose: a short truth-tinted sentence + a tiny note.
  * Deterministic by day so the same calendar day shows the same card.

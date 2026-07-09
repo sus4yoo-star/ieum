@@ -12,19 +12,19 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://todakamov.netlify.app"),
 
   title: {
-    default: "토닥 — 오늘 밤, 토닥토닥",
-    template: "%s | 토닥",
+    default: "셀라 — 잠시 멈추어, 마음을 내려놓는 곳",
+    template: "%s | 셀라",
   },
 
   description:
-    "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
+    "지치고 무거운 밤, 판단 없이 곁에 있어줄게요. 무엇을 안고 왔든, 당신은 그 자체로 소중해요.",
 
-  applicationName: "토닥",
+  applicationName: "셀라",
   manifest: "/manifest.json",
 
   appleWebApp: {
     capable: true,
-    title: "토닥",
+    title: "셀라",
     statusBarStyle: "black-translucent",
   },
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "black-translucent",
-    "apple-mobile-web-app-title": "토닥",
+    "apple-mobile-web-app-title": "셀라",
   },
 
   icons: {
@@ -49,11 +49,11 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "토닥 — 오늘 밤, 토닥토닥",
+    title: "셀라 — 잠시 멈추어, 마음을 내려놓는 곳",
     description:
-      "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
+      "지치고 무거운 밤, 판단 없이 곁에 있어줄게요. 무엇을 안고 왔든, 당신은 그 자체로 소중해요.",
     url: "https://todakamov.netlify.app",
-    siteName: "토닥",
+    siteName: "셀라",
     locale: "ko_KR",
     type: "website",
     images: [
@@ -61,16 +61,16 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "토닥",
+        alt: "셀라",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "토닥 — 오늘 밤, 토닥토닥",
+    title: "셀라 — 잠시 멈추어, 마음을 내려놓는 곳",
     description:
-      "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
+      "지치고 무거운 밤, 판단 없이 곁에 있어줄게요. 무엇을 안고 왔든, 당신은 그 자체로 소중해요.",
     images: ["/og-image.png"],
   },
 };
@@ -79,7 +79,7 @@ export const viewport: Viewport = {
   themeColor: "#16152b",
   width: "device-width",
   initialScale: 1,
-  // Allow pinch-zoom for accessibility — 토닥 must stay reachable for
+  // Allow pinch-zoom for accessibility — 셀라 must stay reachable for
   // users who rely on the browser zoom (older eyes, motor-impaired users).
   viewportFit: "cover",
 };

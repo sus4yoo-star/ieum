@@ -10,7 +10,7 @@
     --font-serif: "Noto Serif KR";
     --font-display: "Cormorant Garamond";
 
-    /* shadcn token mapping onto the 토닥 night-indigo + dawn-amber system (HSL) */
+    /* shadcn token mapping onto the 셀라 night-indigo + dawn-amber system (HSL) */
     --background: 244 34% 13%;
     --foreground: 40 40% 94%;
     --card: 245 32% 18%;

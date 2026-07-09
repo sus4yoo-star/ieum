@@ -387,7 +387,7 @@ export function MessageBubble({
 
     return (
       <div className="mr-auto max-w-[78%]">
-        <div className="mb-1 text-[11px] uppercase tracking-[0.2em] text-selah-cream3">토닥</div>
+        <div className="mb-1 text-[11px] uppercase tracking-[0.2em] text-selah-cream3">셀라</div>
         <div
           className="rounded-2xl rounded-tl-sm border border-selah-gold/10 bg-selah-bg2/80 px-4 py-3 leading-7 text-selah-cream2 shadow-soft"
           style={{ fontSize: "var(--chat-font-size, 15px)" }}
@@ -402,7 +402,7 @@ export function MessageBubble({
   if (!parsed.structured) {
     return (
       <div className="mr-auto max-w-[78%]">
-        <div className="mb-1 text-[11px] uppercase tracking-[0.2em] text-selah-cream3">토닥</div>
+        <div className="mb-1 text-[11px] uppercase tracking-[0.2em] text-selah-cream3">셀라</div>
         <div
           className="whitespace-pre-wrap rounded-2xl rounded-tl-sm border border-selah-gold/10 bg-selah-bg2/80 px-4 py-3 leading-7 text-selah-cream2 shadow-soft"
           style={{ fontSize: "var(--chat-font-size, 15px)" }}
@@ -429,7 +429,7 @@ export function MessageBubble({
 
   return (
     <div className="mr-auto max-w-[78%]">
-      <div className="mb-1 text-[11px] uppercase tracking-[0.2em] text-selah-cream3">토닥</div>
+      <div className="mb-1 text-[11px] uppercase tracking-[0.2em] text-selah-cream3">셀라</div>
 
       <div className="overflow-hidden rounded-2xl rounded-tl-sm border border-selah-gold/10 bg-selah-bg2/80 shadow-soft">
         {parsed.emotion && (
@@ -482,7 +482,7 @@ export function MessageBubble({
                 text={parsed.prayer}
                 lang={lang}
                 variant="manna"
-                brandLabel="토닥"
+                brandLabel="셀라"
               />
             )}
           </Section>

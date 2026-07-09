@@ -1,4 +1,4 @@
-/* 토닥 service worker, v6.
+/* 셀라 service worker, v7 (셀라).
  *
  * v6 changes: PWA-critical files (manifest.json, /icon-*.png, apple-touch
  * icons) are now ALWAYS fetched from the network so iOS can read the
@@ -12,7 +12,7 @@
  *   - Static assets (JS/CSS bundles)     → stale-while-revalidate.
  *   - API / auth / Supabase              → bypass entirely.
  */
-const CACHE = "manna-shell-v6";
+const CACHE = "selah-shell-v7";
 
 const PRECACHE = [
   "/",
@@ -127,7 +127,7 @@ self.addEventListener("message", (e) => {
 /* ── Web Push ────────────────────────────────────────────────────── */
 self.addEventListener("push", (e) => {
   let data = {
-    title: "토닥",
+    title: "셀라",
     body: "오늘 하루, 자신에게 한 번 부드러워지는 시간을.",
     url: "/chat",
   };

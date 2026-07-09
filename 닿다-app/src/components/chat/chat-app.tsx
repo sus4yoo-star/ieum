@@ -236,7 +236,7 @@ export function ChatApp({
       });
 
       if (!res.ok || !res.body) {
-        let msg = "토닥 could not respond. Please try again.";
+        let msg = "셀라 could not respond. Please try again.";
         try {
           const j = await res.json();
           if (j?.error) msg = j.error;

@@ -1,7 +1,7 @@
 {
-  "name": "토닥",
-  "short_name": "토닥",
-  "description": "사랑으로 아파하는 마음 곁에. 짝사랑·고백·이별의 밤, 판단 없이 곁에 있어줄게요.",
+  "name": "셀라",
+  "short_name": "셀라",
+  "description": "잠시 멈추어, 마음을 내려놓는 곳. 지치고 무거운 밤, 판단 없이 곁에 있어줄게요.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

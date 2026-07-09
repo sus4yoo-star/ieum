@@ -97,7 +97,7 @@ export function ChatWindow({
       <header className="shrink-0 border-b border-selah-gold/15 bg-selah-bg1 pt-[env(safe-area-inset-top)]">
         <div className="flex h-[60px] items-center gap-2 px-3 sm:px-4">
           {menuButton}
-          <div className="font-display text-xl font-semibold tracking-[0.16em] text-selah-gold lg:hidden">토닥</div>
+          <div className="font-display text-xl font-semibold tracking-[0.16em] text-selah-gold lg:hidden">셀라</div>
           <div className="ml-auto flex items-center gap-2">
             <PrayerMenu />
             <ViewSettingsMenu />

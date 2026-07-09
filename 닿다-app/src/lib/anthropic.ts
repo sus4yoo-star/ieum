@@ -1,7 +1,7 @@
 /**
  * Shared helpers for talking to the Anthropic Messages API.
  *
- * 토닥 runs on Claude. Quality is the priority over latency, so the
+ * 셀라 runs on Claude. Quality is the priority over latency, so the
  * default is a strong model; it can be overridden per environment with
  * the ANTHROPIC_MODEL variable (e.g. set it to "claude-opus-4-7" for the
  * deepest possible responses, or to a cheaper model to cut cost).

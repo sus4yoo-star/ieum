@@ -13,7 +13,6 @@ import {
   Star,
   Activity,
   Bell,
-  HeartHandshake,
 } from "lucide-react";
 import type { ChatSession } from "@/lib/types";
 import { useLanguage } from "@/components/language-provider";
@@ -120,16 +119,6 @@ export function ChatSidebar({
         >
           <Bell className="h-3.5 w-3.5" />
           {fs.reminderTitle}
-        </Link>
-      </div>
-
-      <div className="mt-2 px-3">
-        <Link
-          href="/healer"
-          className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-selah-gold/25 bg-selah-gold/[0.06] px-3 py-2.5 text-[12.5px] text-selah-cream1 transition-colors hover:border-selah-gold/50 hover:bg-selah-gold/[0.1]"
-        >
-          <HeartHandshake className="h-4 w-4 text-selah-gold" />
-          토닥 힐러가 되어주세요
         </Link>
       </div>
 

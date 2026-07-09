@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "사업자정보 | 토닥",
-  description: "토닥 운영 사업자 정보",
+  title: "사업자정보 | 셀라",
+  description: "셀라 운영 사업자 정보",
 };
 
 export default function BusinessPage() {
@@ -14,7 +14,7 @@ export default function BusinessPage() {
             href="/"
             className="text-sm text-neutral-500 hover:text-neutral-800 transition"
           >
-            ← 토닥으로 돌아가기
+            ← 셀라으로 돌아가기
           </Link>
         </div>
 
@@ -22,7 +22,7 @@ export default function BusinessPage() {
           사업자정보
         </h1>
         <p className="text-sm text-neutral-500 mb-10">
-          토닥을 운영하는 사업자 정보입니다.
+          셀라을 운영하는 사업자 정보입니다.
         </p>
 
         <div className="space-y-6">
@@ -43,7 +43,7 @@ export default function BusinessPage() {
                   </a>
                 }
               />
-              <Row label="서비스명" value="토닥 (토닥)" />
+              <Row label="서비스명" value="셀라 (셀라)" />
               <Row label="서비스 도메인" value="todakamov.netlify.app" />
             </dl>
           </div>
@@ -51,7 +51,7 @@ export default function BusinessPage() {
           <div className="rounded-xl border border-neutral-200 p-6 text-sm text-neutral-600 leading-relaxed">
             <p className="font-medium text-neutral-800 mb-2">서비스 안내</p>
             <p>
-              토닥은 마음의 동행을 위한 AI 대화 서비스로, 현재 무료로 제공되고
+              셀라은 마음의 동행을 위한 AI 대화 서비스로, 현재 무료로 제공되고
               있습니다. 결제가 발생하지 않으므로 통신판매업 신고 의무에서
               제외됩니다. 향후 유료 서비스를 도입하는 경우 별도 공지 및
               통신판매업 신고 후 시행됩니다.
@@ -61,7 +61,7 @@ export default function BusinessPage() {
           <div className="rounded-xl border-2 border-rose-200 bg-rose-50/60 p-6 text-sm text-rose-900 leading-relaxed">
             <p className="font-semibold mb-2">의료·심리 상담이 필요하시다면</p>
             <p>
-              토닥은 의료·심리 상담을 대체하지 않습니다. 즉각적인 도움이
+              셀라은 의료·심리 상담을 대체하지 않습니다. 즉각적인 도움이
               필요하다면 아래 전문 기관에 연락해주세요.
             </p>
             <ul className="mt-2 space-y-1">

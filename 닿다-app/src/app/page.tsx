@@ -17,7 +17,7 @@ export default function HomePage() {
       </div>
 
       <div className="flex w-full max-w-md flex-col items-center">
-        {/* 토닥 heart symbol with a soft breathing aura */}
+        {/* 셀라 heart symbol with a soft breathing aura */}
         <div className="relative mb-6 flex h-32 w-44 items-center justify-center animate-fade-in">
           <span
             className="absolute left-1/2 top-1/2 h-40 w-40 animate-breathe rounded-full bg-selah-gold/10 blur-2xl"
@@ -25,7 +25,7 @@ export default function HomePage() {
           />
           <img
             src="/symbol-transparent.png"
-            alt="토닥"
+            alt="셀라"
             className="relative h-32 w-44 object-contain drop-shadow-[0_0_26px_rgba(240,178,116,0.42)]"
           />
         </div>
@@ -34,7 +34,7 @@ export default function HomePage() {
           className="mb-2 font-serif text-5xl font-semibold tracking-[0.14em] text-selah-gold animate-rise"
           style={{ animationDelay: "0.05s" }}
         >
-          토닥
+          셀라
         </h1>
         <p
           className="mb-8 text-sm tracking-wide text-selah-cream3 animate-rise"

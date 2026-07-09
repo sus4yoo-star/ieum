@@ -146,7 +146,7 @@ const ko: FeatureStrings = {
   crisisCallNow: "전화 연결",
   crisisDismiss: "닫기",
   crisisDisclaimer:
-    "토닥은 의료·심리 상담을 대체하지 않습니다. 위급한 상황에서는 전문가의 도움이 가장 안전합니다.",
+    "셀라은 의료·심리 상담을 대체하지 않습니다. 위급한 상황에서는 전문가의 도움이 가장 안전합니다.",
 
   shareWords: "이 글 나누기",
   copy: "복사",
@@ -209,14 +209,14 @@ const ko: FeatureStrings = {
   todayTitle: "오늘의 한 마디",
   todaySubtitle: "마음에 머무를 짧은 한 마디",
   todayShare: "오늘의 한 마디 나누기",
-  todayOpenApp: "토닥 열기",
+  todayOpenApp: "셀라 열기",
 
   crossLinkSelahToMannaTitle: "혼자 견디고 있진 않나요?",
   crossLinkSelahToMannaBody:
-    "마음이 무거운 밤, 토닥이 곁에 있을게요.",
+    "마음이 무거운 밤, 셀라이 곁에 있을게요.",
   crossLinkMannaToSelahTitle: "혼자 견디고 있진 않나요?",
   crossLinkMannaToSelahBody:
-    "마음이 무거운 밤, 토닥이 곁에 있을게요.",
+    "마음이 무거운 밤, 셀라이 곁에 있을게요.",
   crossLinkOpen: "열어보기",
   crossLinkDismiss: "다음에",
 
@@ -334,14 +334,14 @@ const en: FeatureStrings = {
   todayTitle: "Today's words",
   todaySubtitle: "A short thought to carry today",
   todayShare: "Share today's words",
-  todayOpenApp: "Open 토닥",
+  todayOpenApp: "Open 셀라",
 
   crossLinkSelahToMannaTitle: "Carrying this alone?",
   crossLinkSelahToMannaBody:
-    "토닥 is here on the hard nights.",
+    "셀라 is here on the hard nights.",
   crossLinkMannaToSelahTitle: "Carrying this alone?",
   crossLinkMannaToSelahBody:
-    "토닥 is here on the hard nights.",
+    "셀라 is here on the hard nights.",
   crossLinkOpen: "Open",
   crossLinkDismiss: "Later",
 

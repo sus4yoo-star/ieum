@@ -6,15 +6,15 @@ import { useLanguage } from "@/components/language-provider";
 import { getFeatureStrings } from "@/lib/feature-strings";
 
 /**
- * Soft cross-promo card from SELAH → 토닥.
+ * Soft cross-promo card from SELAH → 셀라.
  *
  * Shown once per device after the user has had at least 3 real
  * conversations. Idea: a SELAH user who is going through a faith-neutral
- * grief / anxiety moment may welcome 토닥's faith-agnostic tone, and
+ * grief / anxiety moment may welcome 셀라's faith-agnostic tone, and
  * vice versa. Dismissable; remembers via localStorage forever.
  */
 const SEEN_KEY = "manna_cross_link_seen";
-// 토닥: 셀라(신앙) 사이드 크로스링크는 토닥에 불필요 → 비활성화
+// 셀라: 셀라(신앙) 사이드 크로스링크는 셀라에 불필요 → 비활성화
 const MIN_SESSIONS = Infinity;
 
 export function CrossLinkCard({
