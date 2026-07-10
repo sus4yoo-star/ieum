@@ -18,19 +18,20 @@ const PUB = join(__dirname, "..", "public");
 const NIGHT = "#14162b";
 const NIGHT2 = "#20233d";
 const AMBER = "#f0b274";
+const ROSE = "#efc0cf";
 
-/** '숨 쉬는 빛' 마크를 주어진 캔버스 중앙에 배치한 group. */
+/** '숨 쉬는 빛' 마크 — 로즈 헤일로(포인트) + 앰버 코어 — 를 중앙에 배치한 group. */
 function markGroup(canvas, coverage = 0.62, strokeScale = 1) {
   const size = canvas * coverage;
   const s = size / 100; // viewBox 0..100 → size
   const off = (canvas - size) / 2;
-  const sw1 = 1.5 * strokeScale;
-  const sw2 = 1.8 * strokeScale;
+  const sw1 = 2.4 * strokeScale;
+  const sw2 = 2.8 * strokeScale;
   return `
     <g transform="translate(${off} ${off}) scale(${s})">
-      <circle cx="50" cy="50" r="34" stroke="${AMBER}" stroke-width="${sw1}" opacity="0.4"/>
-      <circle cx="50" cy="50" r="22" stroke="${AMBER}" stroke-width="${sw2}" opacity="0.78"/>
-      <circle cx="50" cy="50" r="8.5" fill="${AMBER}"/>
+      <circle cx="50" cy="50" r="35" stroke="${ROSE}" stroke-width="${sw1}" opacity="0.75"/>
+      <circle cx="50" cy="50" r="22" stroke="${AMBER}" stroke-width="${sw2}" opacity="0.95"/>
+      <circle cx="50" cy="50" r="9.5" fill="${AMBER}"/>
     </g>`;
 }
 
@@ -73,9 +74,9 @@ function ogSVG() {
     <rect width="${W}" height="${H}" fill="url(#bg)"/>
     <rect width="${W}" height="${H}" fill="url(#glow)"/>
     <g transform="translate(${W / 2 - 90} 150) scale(1.8)">
-      <circle cx="50" cy="50" r="34" stroke="${AMBER}" stroke-width="1.4" opacity="0.4"/>
-      <circle cx="50" cy="50" r="22" stroke="${AMBER}" stroke-width="1.7" opacity="0.78"/>
-      <circle cx="50" cy="50" r="8.5" fill="${AMBER}"/>
+      <circle cx="50" cy="50" r="35" stroke="${ROSE}" stroke-width="2.2" opacity="0.8"/>
+      <circle cx="50" cy="50" r="22" stroke="${AMBER}" stroke-width="2.6" opacity="0.95"/>
+      <circle cx="50" cy="50" r="9.5" fill="${AMBER}"/>
     </g>
     <text x="${W / 2}" y="440" text-anchor="middle" fill="${AMBER}"
       font-family="Georgia, 'Times New Roman', serif" font-size="86"

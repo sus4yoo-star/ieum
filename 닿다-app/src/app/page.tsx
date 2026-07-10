@@ -19,12 +19,17 @@ export default function HomePage() {
 
       <div className="flex w-full max-w-md flex-col items-center">
         {/* 셀라 heart symbol with a soft breathing aura */}
-        <div className="relative mb-6 flex h-32 w-44 items-center justify-center animate-fade-in">
+        <div className="relative mb-6 flex h-32 w-32 items-center justify-center animate-fade-in">
+          {/* 앰버 온기 + 로즈 포인트가 함께 숨 쉬는 이중 오라 */}
           <span
             className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 animate-breathe rounded-full bg-selah-gold/10 blur-2xl"
             aria-hidden
           />
-          <SelahMark className="relative h-32 w-32 animate-breathe text-selah-gold drop-shadow-[0_0_26px_rgba(240,178,116,0.42)]" />
+          <span
+            className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 animate-breathe rounded-full bg-selah-rose/15 blur-2xl"
+            aria-hidden
+          />
+          <SelahMark className="relative h-32 w-32 animate-breathe drop-shadow-[0_0_26px_rgba(240,178,116,0.42)]" />
         </div>
 
         <h1
@@ -53,7 +58,7 @@ export default function HomePage() {
         >
           <span
             aria-hidden
-            className="absolute left-4 top-3 font-serif text-5xl leading-none text-selah-gold/40"
+            className="absolute left-4 top-3 font-serif text-5xl leading-none text-selah-rose/60"
           >
             &ldquo;
           </span>
