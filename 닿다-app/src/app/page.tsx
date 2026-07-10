@@ -29,7 +29,7 @@ export default function HomePage() {
             className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 animate-breathe rounded-full bg-selah-rose/15 blur-2xl"
             aria-hidden
           />
-          <SelahMark className="relative h-32 w-32 animate-breathe drop-shadow-[0_0_26px_rgba(240,178,116,0.42)]" />
+          <SelahMark className="relative h-32 w-32 drop-shadow-[0_0_26px_rgba(240,178,116,0.42)]" />
         </div>
 
         <h1
