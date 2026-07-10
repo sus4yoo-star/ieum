@@ -19,7 +19,7 @@ export default function HomePage() {
 
       <div className="flex w-full max-w-md flex-col items-center">
         {/* 셀라 heart symbol with a soft breathing aura */}
-        <div className="relative mb-6 flex h-32 w-32 items-center justify-center animate-fade-in">
+        <div className="relative mx-auto mb-6 flex h-32 w-32 items-center justify-center animate-fade-in">
           {/* 앰버 온기 + 로즈 포인트가 함께 숨 쉬는 이중 오라 */}
           <span
             className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 animate-breathe rounded-full bg-selah-gold/10 blur-2xl"
