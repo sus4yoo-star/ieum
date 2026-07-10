@@ -102,7 +102,8 @@ export default function JourneyPage() {
   const [loading, setLoading] = React.useState(true);
   const [sharing, setSharing] = React.useState(false);
   const [shared, setShared] = React.useState(false);
-  const [range, setRange] = React.useState<7 | 30 | 90>(30);
+  // 기본은 '주간 마음 리포트' — 매주 돌아보고 공유하는 의식이 되도록 7일
+  const [range, setRange] = React.useState<7 | 30 | 90>(7);
 
   React.useEffect(() => {
     let cancelled = false;
@@ -161,11 +162,12 @@ export default function JourneyPage() {
           ? range === 7 ? "지난 7일" : range === 30 ? "지난 30일" : "지난 90일"
           : range === 7 ? "Last 7 days" : range === 30 ? "Last 30 days" : "Last 90 days";
 
+      const weeklyTitle = lang === "ko" ? "주간 마음 리포트" : "Weekly Heart Report";
       const svg = buildJourneyCardSvg({
-        variant: "manna",
+        variant: "selah",
         brandLabel: "셀라",
         tagline: "Walk with you",
-        title: fs.journeyTitle,
+        title: range === 7 ? weeklyTitle : fs.journeyTitle,
         rangeLabel,
         activeDays: totalActive,
         positiveDays,
@@ -180,7 +182,7 @@ export default function JourneyPage() {
         footer: "selah.theamov.com",
       });
       const blob = await svgToPngBlob(svg);
-      const file = new File([blob], `manna-journey-${Date.now()}.png`, { type: "image/png" });
+      const file = new File([blob], `selah-weekly-${Date.now()}.png`, { type: "image/png" });
       const shareData: any = { files: [file] };
       const canFileShare =
         typeof navigator.share === "function" &&
@@ -190,10 +192,10 @@ export default function JourneyPage() {
         try {
           await (navigator as any).share(shareData);
         } catch {
-          downloadBlob(blob, `manna-journey-${Date.now()}.png`);
+          downloadBlob(blob, `selah-weekly-${Date.now()}.png`);
         }
       } else {
-        downloadBlob(blob, `manna-journey-${Date.now()}.png`);
+        downloadBlob(blob, `selah-weekly-${Date.now()}.png`);
       }
       setShared(true);
       setTimeout(() => setShared(false), 1800);

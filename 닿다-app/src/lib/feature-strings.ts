@@ -127,6 +127,19 @@ export interface FeatureStrings {
   reminderDefaultMsgManna: string;
   reminderTestSend: string;
   reminderTestSent: string;
+
+  // ── 2026.07 — growth round: landing features + Dabar invite ─────
+  landingFeat1Title: string;
+  landingFeat1Desc: string;
+  landingFeat2Title: string;
+  landingFeat2Desc: string;
+  landingFeat3Title: string;
+  landingFeat3Desc: string;
+
+  dabarInviteTitle: string;
+  dabarInviteBody: string;
+  dabarInviteOpen: string;
+  dabarInviteDismiss: string;
 }
 
 const ko: FeatureStrings = {
@@ -252,6 +265,19 @@ const ko: FeatureStrings = {
   reminderDefaultMsgManna: "오늘 하루, 자신에게 한 번 부드러워지는 시간을 가져보세요.",
   reminderTestSend: "지금 한 번 보내보기",
   reminderTestSent: "방금 보냈어요. 알림이 안 보이면 권한을 확인해 주세요.",
+
+  landingFeat1Title: "카톡 마음 읽기",
+  landingFeat1Desc: "대화 캡처를 올리면, 오간 말 사이의 마음을 같이 읽어드려요.",
+  landingFeat2Title: "먼저 묻는 안부",
+  landingFeat2Desc: "정한 시간에 셀라가 먼저 “오늘 밤 어땠어요?” 하고 찾아와요.",
+  landingFeat3Title: "주간 마음 리포트",
+  landingFeat3Desc: "한 주의 감정 흐름을 예쁜 카드 한 장으로 돌아봐요.",
+
+  dabarInviteTitle: "요즘, 더 깊은 질문을 안고 계시네요.",
+  dabarInviteBody:
+    "위로를 넘어 삶의 방향까지 함께 고민하고 싶다면, 다바르라는 공간이 있어요. 마음이 움직일 때 한번 들러보세요 — 셀라는 언제나 여기 그대로 있을게요.",
+  dabarInviteOpen: "다바르 살펴보기",
+  dabarInviteDismiss: "지금은 괜찮아요",
 };
 
 const en: FeatureStrings = {
@@ -377,6 +403,19 @@ const en: FeatureStrings = {
   reminderDefaultMsgManna: "Take a moment today to be gentle with yourself.",
   reminderTestSend: "Send a test now",
   reminderTestSent: "Sent. If you don't see it, check your permissions.",
+
+  landingFeat1Title: "Read between the lines",
+  landingFeat1Desc: "Upload a chat screenshot and we'll read the feelings inside it together.",
+  landingFeat2Title: "Selah reaches out first",
+  landingFeat2Desc: "At your chosen hour, Selah checks in: “How was tonight?”",
+  landingFeat3Title: "Weekly heart report",
+  landingFeat3Desc: "Look back on your week of feelings in one beautiful card.",
+
+  dabarInviteTitle: "You've been carrying deeper questions lately.",
+  dabarInviteBody:
+    "If you want to go beyond comfort and think through where your life is headed, there's a space called Dabar. Drop by when your heart moves — Selah will always be right here.",
+  dabarInviteOpen: "Take a look at Dabar",
+  dabarInviteDismiss: "Not right now",
 };
 
 /**

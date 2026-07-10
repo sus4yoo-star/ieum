@@ -37,7 +37,8 @@ interface JourneyCardOptions {
 }
 
 const PALETTES = {
-  selah: { bg: "#07111f", bg2: "#0d1c30", bg3: "#142b48", gold: "#e3b975", cream: "#f3efe6", cream2: "#cdd8d2", pos: "#86efac", neg: "#fcd34d" },
+  // 셀라 새 정체성: 나이트 인디고 + 던 앰버, 평안=문 실버 / 버거움=로즈
+  selah: { bg: "#14162b", bg2: "#1a1c33", bg3: "#343759", gold: "#f0b274", cream: "#f5f1ea", cream2: "#cbc6e0", pos: "#b9c4ee", neg: "#efc0cf" },
   manna: { bg: "#03212a", bg2: "#0a333d", bg3: "#0f4854", gold: "#e3b975", cream: "#f3efe6", cream2: "#cdd8d2", pos: "#86efac", neg: "#fcd34d" },
 };
 
@@ -79,14 +80,13 @@ function sparklinePath(points: JourneyCardPoint[], x0: number, y0: number, w: nu
 }
 
 function statCard(x: number, y: number, w: number, h: number, label: string, value: number, tone: "neutral" | "pos" | "neg", p: any): string {
-  const valueColor =
-    tone === "pos" ? "#bbf7d0" : tone === "neg" ? "#fde68a" : p.cream;
-  const labelColor =
-    tone === "pos" ? "#86efac" : tone === "neg" ? "#fcd34d" : p.cream2;
+  // 팔레트에서 유도 — 새 정체성(문/로즈)도, 레거시(그린/앰버)도 함께 지원
+  const valueColor = tone === "pos" ? p.pos : tone === "neg" ? p.neg : p.cream;
+  const labelColor = tone === "pos" ? p.pos : tone === "neg" ? p.neg : p.cream2;
   const stroke =
-    tone === "pos" ? "rgba(134,239,172,0.18)" : tone === "neg" ? "rgba(252,211,77,0.18)" : "rgba(255,255,255,0.08)";
+    tone === "pos" ? `${p.pos}2e` : tone === "neg" ? `${p.neg}2e` : "rgba(255,255,255,0.08)";
   const fill =
-    tone === "pos" ? "rgba(134,239,172,0.05)" : tone === "neg" ? "rgba(252,211,77,0.05)" : "rgba(255,255,255,0.02)";
+    tone === "pos" ? `${p.pos}0d` : tone === "neg" ? `${p.neg}0d` : "rgba(255,255,255,0.02)";
   return `
     <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="24" ry="24"
           fill="${fill}" stroke="${stroke}" stroke-width="1"/>
@@ -106,8 +106,8 @@ export function buildJourneyCardSvg(opts: JourneyCardOptions): string {
   const SAFE_TOP = 220;
   const SAFE_BOTTOM = 220;
 
-  // Brand
-  const brandY = SAFE_TOP + 90;
+  // Brand — 마크가 위에 얹히므로 세이프존 아래로 여유 있게
+  const brandY = SAFE_TOP + 200;
   const brandLetters = esc(opts.brandLabel.split("").join(" "));
 
   // Title block (inside the safe area)
@@ -190,7 +190,12 @@ export function buildJourneyCardSvg(opts: JourneyCardOptions): string {
   <rect x="60" y="60" width="${W - 120}" height="${H - 120}"
         fill="none" stroke="${p.gold}" stroke-opacity="0.10" stroke-width="1"/>
 
-  <!-- Brand -->
+  <!-- Brand: 숨 쉬는 빛 마크 + 워드마크 -->
+  <g transform="translate(${W / 2 - 55} ${brandY - 210}) scale(1.1)">
+    <circle cx="50" cy="50" r="35" stroke="${p.neg}" stroke-width="2.4" opacity="0.75"/>
+    <circle cx="50" cy="50" r="22" stroke="${p.gold}" stroke-width="2.8" opacity="0.95"/>
+    <circle cx="50" cy="50" r="9.5" fill="${p.gold}"/>
+  </g>
   <text x="${W / 2}" y="${brandY}"
         font-family="'Cormorant Garamond', 'Noto Serif KR', serif"
         font-size="72" font-weight="600" fill="${p.gold}"
