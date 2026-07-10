@@ -65,9 +65,9 @@ export function Splash() {
             animation: "selahSplashBreathe 2.4s ease-in-out infinite",
           }}
         >
-          <circle cx="50" cy="50" r="34" stroke="#f0b274" strokeWidth="1.5" opacity="0.38" />
-          <circle cx="50" cy="50" r="22" stroke="#f0b274" strokeWidth="1.8" opacity="0.75" />
-          <circle cx="50" cy="50" r="8.5" fill="#f0b274" />
+          <circle cx="50" cy="50" r="35" stroke="#efc0cf" strokeWidth="2.4" opacity="0.75" />
+          <circle cx="50" cy="50" r="22" stroke="#f0b274" strokeWidth="2.8" opacity="0.95" />
+          <circle cx="50" cy="50" r="9.5" fill="#f0b274" />
         </svg>
       </div>
 

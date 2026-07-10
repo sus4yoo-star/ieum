@@ -17,9 +17,10 @@ export function SelahMark({ className }: { className?: string }) {
       aria-label="셀라"
       className={className}
     >
-      <circle cx="50" cy="50" r="34" stroke="currentColor" strokeWidth="1.5" opacity="0.38" />
-      <circle cx="50" cy="50" r="22" stroke="currentColor" strokeWidth="1.8" opacity="0.75" />
-      <circle cx="50" cy="50" r="8.5" fill="currentColor" />
+      {/* 로즈 헤일로(포인트) — 바깥, 앰버 코어 — 안쪽. 굵게 그려 작은 크기에서도 형태가 산다. */}
+      <circle cx="50" cy="50" r="35" stroke="#efc0cf" strokeWidth="2.4" opacity="0.75" />
+      <circle cx="50" cy="50" r="22" stroke="#f0b274" strokeWidth="2.8" opacity="0.95" />
+      <circle cx="50" cy="50" r="9.5" fill="#f0b274" />
     </svg>
   );
 }
