@@ -11,6 +11,7 @@ import { MessageBubble } from "@/components/chat/message-bubble";
 import { ChatInput } from "@/components/chat/chat-input";
 import { CrisisCard } from "@/components/chat/crisis-card";
 import { CrossLinkCard } from "@/components/chat/cross-link-card";
+import { DabarInviteCard } from "@/components/chat/dabar-invite-card";
 import { Loader2, ChevronDown } from "lucide-react";
 
 export function ChatWindow({
@@ -167,6 +168,13 @@ export function ChatWindow({
             {messages.map((m) => (
               <MessageBubble key={m.id} message={m} lang={lang} />
             ))}
+            {/* 다바르 초대 — 깊은 질문이 반복될 때, 단 한 번. 강요 없음. */}
+            <DabarInviteCard
+              userTexts={messages
+                .filter((m) => m.role === "user")
+                .map((m) => m.content)}
+              streaming={streaming}
+            />
             {lastPendingEmpty && (
               <div
                 className="mx-auto mb-5 flex w-full max-w-2xl items-center gap-2 text-selah-cream3"
