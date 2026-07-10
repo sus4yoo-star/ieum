@@ -11,17 +11,17 @@
     --font-display: "Cormorant Garamond";
 
     /* shadcn token mapping onto the 셀라 night-indigo + dawn-amber system (HSL) */
-    --background: 244 34% 13%;
-    --foreground: 40 40% 94%;
-    --card: 245 32% 18%;
-    --card-foreground: 40 40% 94%;
-    --popover: 245 32% 18%;
-    --popover-foreground: 40 40% 94%;
+    --background: 234 37% 12%;
+    --foreground: 40 38% 94%;
+    --card: 234 31% 18%;
+    --card-foreground: 40 38% 94%;
+    --popover: 234 31% 18%;
+    --popover-foreground: 40 38% 94%;
     --primary: 33 80% 70%;
-    --primary-foreground: 244 34% 13%;
-    --secondary: 246 25% 20%;
-    --secondary-foreground: 40 40% 94%;
-    --muted: 246 25% 20%;
+    --primary-foreground: 234 37% 12%;
+    --secondary: 236 27% 20%;
+    --secondary-foreground: 40 38% 94%;
+    --muted: 236 27% 20%;
     --muted-foreground: 249 15% 62%;
     --accent: 33 80% 70%;
     --accent-foreground: 244 34% 13%;
@@ -66,7 +66,7 @@
       ),
       radial-gradient(
         ellipse 70% 50% at 12% 8%,
-        rgba(233, 143, 166, 0.10),
+        rgba(185, 196, 238, 0.10),
         transparent 60%
       ),
       radial-gradient(
@@ -74,11 +74,11 @@
         rgba(227, 185, 117, 0.07),
         transparent 70%
       ),
-      #16152b;
+      #14162b;
   }
 
   .verse-card {
-    background: #211f3d;
+    background: #20233d;
     border-left: 2px solid #f0b274;
   }
 

@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AmovFooter } from "@/components/amov-footer";
+import { SelahMark } from "@/components/selah-mark";
 
 type Platform = "ios" | "android";
 
@@ -93,11 +94,7 @@ export default function InstallPage() {
             className="absolute left-1/2 top-1/2 h-32 w-32 animate-breathe rounded-full bg-selah-gold/10 blur-2xl"
             aria-hidden
           />
-          <img
-            src="/symbol-transparent.png"
-            alt="셀라"
-            className="relative h-24 w-32 object-contain drop-shadow-[0_0_22px_rgba(212,175,55,0.38)]"
-          />
+          <SelahMark className="relative h-24 w-24 text-selah-gold drop-shadow-[0_0_22px_rgba(240,178,116,0.38)]" />
         </div>
 
         <h1

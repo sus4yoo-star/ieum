@@ -213,10 +213,10 @@ const ko: FeatureStrings = {
 
   crossLinkSelahToMannaTitle: "혼자 견디고 있진 않나요?",
   crossLinkSelahToMannaBody:
-    "마음이 무거운 밤, 셀라이 곁에 있을게요.",
+    "마음이 무거운 밤, 셀라가 곁에 있을게요.",
   crossLinkMannaToSelahTitle: "혼자 견디고 있진 않나요?",
   crossLinkMannaToSelahBody:
-    "마음이 무거운 밤, 셀라이 곁에 있을게요.",
+    "마음이 무거운 밤, 셀라가 곁에 있을게요.",
   crossLinkOpen: "열어보기",
   crossLinkDismiss: "다음에",
 
@@ -236,18 +236,18 @@ const ko: FeatureStrings = {
   journalExporting: "만드는 중…",
   journalReady: "저장됨",
 
-  reminderTitle: "마음 다잡는 시간",
+  reminderTitle: "셀라가 먼저 안부를 물어요",
   reminderEnable: "리마인더 켜기",
   reminderDisable: "리마인더 끄기",
-  reminderTime: "알림 시간",
-  reminderMessage: "알림 문구 (옵션)",
+  reminderTime: "안부 물어줄 시간",
+  reminderMessage: "직접 정한 문구 (옵션)",
   reminderPermissionAsk:
     "알림을 보내려면 브라우저 권한이 필요합니다. 허용하시겠어요?",
   reminderPermissionDenied:
     "알림이 차단되어 있어요. 브라우저 설정에서 알림을 허용한 뒤 다시 시도해 주세요.",
   reminderUnsupported:
     "이 기기/브라우저에서는 푸시 알림이 지원되지 않아요. PWA로 설치하면 사용할 수 있어요.",
-  reminderSaved: "저장되었어요. 매일 알려드릴게요.",
+  reminderSaved: "저장했어요. 매일 이 시간에 셀라가 먼저 안부를 물을게요.",
   reminderDefaultMsgSelah: "잠시 멈춰, 오늘 마음을 가만히 들여다보세요.",
   reminderDefaultMsgManna: "오늘 하루, 자신에게 한 번 부드러워지는 시간을 가져보세요.",
   reminderTestSend: "지금 한 번 보내보기",
@@ -361,18 +361,18 @@ const en: FeatureStrings = {
   journalExporting: "Building…",
   journalReady: "Saved",
 
-  reminderTitle: "Mindful Reminders",
+  reminderTitle: "Selah reaches out first",
   reminderEnable: "Enable reminders",
   reminderDisable: "Disable reminders",
-  reminderTime: "Time",
-  reminderMessage: "Message (optional)",
+  reminderTime: "When to check in",
+  reminderMessage: "Your own words (optional)",
   reminderPermissionAsk:
     "Sending notifications requires browser permission. Allow?",
   reminderPermissionDenied:
     "Notifications are blocked. Please allow them in browser settings and try again.",
   reminderUnsupported:
     "Push notifications aren't supported on this device/browser. Install as a PWA to enable them.",
-  reminderSaved: "Saved. We'll remind you every day.",
+  reminderSaved: "Saved. Every day at this time, Selah will reach out first.",
   reminderDefaultMsgSelah: "Pause for a moment and look gently at today's heart.",
   reminderDefaultMsgManna: "Take a moment today to be gentle with yourself.",
   reminderTestSend: "Send a test now",

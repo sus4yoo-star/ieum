@@ -8,6 +8,7 @@ import { AmovFooter } from "@/components/amov-footer";
 import { LanguageSelector } from "@/components/language-selector";
 import { useLanguage } from "@/components/language-provider";
 import { getFeatureStrings } from "@/lib/feature-strings";
+import { SelahMark } from "@/components/selah-mark";
 
 /**
  * "오늘의 한 마디" — a daily reflection card for 셀라.
@@ -57,7 +58,7 @@ export default function TodayPage() {
   const [busyShare, setBusyShare] = React.useState(false);
 
   const entry = React.useMemo(() => KO_BANK[todayIndex(KO_BANK.length)], []);
-  const shareText = `${entry.line}\n\n${entry.note}\n\ntodakamov.netlify.app`;
+  const shareText = `${entry.line}\n\n${entry.note}\n\nselah.theamov.com`;
 
   const onShare = async () => {
     setBusyShare(true);
@@ -82,11 +83,7 @@ export default function TodayPage() {
 
       <div className="flex w-full max-w-md flex-col items-center">
         <div className="relative mb-5 flex h-20 w-28 items-center justify-center animate-fade-in">
-          <img
-            src="/symbol-transparent.png"
-            alt=""
-            className="relative h-20 w-28 object-contain drop-shadow-[0_0_22px_rgba(212,175,55,0.38)]"
-          />
+          <SelahMark className="relative h-20 w-20 text-selah-gold drop-shadow-[0_0_22px_rgba(240,178,116,0.38)]" />
         </div>
 
         <p className="mb-1 text-center text-[12px] tracking-[0.18em] text-selah-cream3 animate-rise" style={{ animationDelay: "0.08s" }}>

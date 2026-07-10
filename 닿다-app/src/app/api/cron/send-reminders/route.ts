@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { sendPush, pushReady } from "@/lib/push-server";
+import { pickReminderMessage } from "@/lib/reminder-messages";
 
 export const runtime = "nodejs";
 
@@ -134,14 +135,22 @@ export async function GET(req: Request) {
 
   // 4) Fire pushes.
   const BRAND = process.env.APP_BRAND_LABEL || "셀라";
-  const DEFAULT_KO = "오늘 하루, 자신에게 한 번 부드러워지는 시간을 가져보세요.";
-  const DEFAULT_EN = "Take a moment today to be gentle with yourself.";
 
   let sent = 0;
   for (const r of due) {
     const userSubs = subsByUser.get(r.user_id) || [];
     if (userSubs.length === 0) continue;
-    const body = r.message || (r.lang === "en" ? DEFAULT_EN : DEFAULT_KO);
+    // "누가 나를 기다린다" 훅: 사용자가 직접 문구를 정했으면 그대로,
+    // 아니면 셀라가 먼저 건네는 — 날짜·시간대·사용자마다 다른 — 안부 인사.
+    const [rhh] = String(r.hh_mm || "08:00").split(":").map(Number);
+    const body =
+      r.message ||
+      pickReminderMessage({
+        lang: r.lang,
+        hour: Number.isFinite(rhh) ? rhh : 8,
+        ymd: localYMD(r.timezone),
+        userId: String(r.user_id || ""),
+      });
     let anyOk = false;
     for (const s of userSubs) {
       const res = await sendPush(

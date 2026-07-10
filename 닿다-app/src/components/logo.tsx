@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { SelahMark } from "@/components/selah-mark";
 
 export function Logo({
   href = "/",
@@ -25,11 +26,9 @@ export function Logo({
       className="group flex items-center gap-2.5 outline-none"
       aria-label="셀라 home"
     >
-      <img
-        src="/symbol-transparent.png"
-        alt=""
+      <SelahMark
         className={cn(
-          "shrink-0 object-contain drop-shadow-[0_0_12px_rgba(240,178,116,0.30)] transition-transform group-hover:scale-105",
+          "shrink-0 text-selah-gold drop-shadow-[0_0_12px_rgba(240,178,116,0.30)] transition-transform group-hover:scale-105",
           dim
         )}
       />

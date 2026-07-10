@@ -44,7 +44,7 @@ export default function BusinessPage() {
                 }
               />
               <Row label="서비스명" value="셀라 (셀라)" />
-              <Row label="서비스 도메인" value="todakamov.netlify.app" />
+              <Row label="서비스 도메인" value="selah.theamov.com" />
             </dl>
           </div>
 
