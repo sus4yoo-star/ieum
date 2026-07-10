@@ -10,8 +10,8 @@ import { countDeepQuestions } from "@/lib/deep-detect";
  * 다바르 초대 카드 — 강요 없는, 단 한 번의 조용한 문.
  *
  * 뜨는 조건 (전부 만족해야):
- *   1. NEXT_PUBLIC_DABAR_URL 이 설정돼 있다 (없으면 기능 자체가 꺼짐 —
- *      다바르가 준비된 뒤 운영자가 URL을 넣는 순간부터 켜진다)
+ *   1. 다바르 주소가 켜져 있다 (기본 dabar.theamov.com,
+ *      NEXT_PUBLIC_DABAR_URL 로 교체 가능, "off"면 완전 비활성)
  *   2. 이 세션에서 사용자가 '깊은 질문'(삶의 의미/용서/존재)을 2번 이상 꺼냈다
  *   3. 응답 스트리밍 중이 아니다 (대화의 숨을 끊지 않는다)
  *   4. 이 기기에서 한 번도 보여준 적이 없다 (localStorage) — 닫으면 끝,
@@ -22,7 +22,9 @@ import { countDeepQuestions } from "@/lib/deep-detect";
  */
 const SEEN_KEY = "selah_dabar_invite_seen";
 const MIN_DEEP = 2;
-const DABAR_URL = process.env.NEXT_PUBLIC_DABAR_URL || "";
+// 기본값: 다바르 운영 주소. 잠시 꺼야 하면 NEXT_PUBLIC_DABAR_URL="off".
+const DABAR_RAW = process.env.NEXT_PUBLIC_DABAR_URL || "https://dabar.theamov.com";
+const DABAR_URL = DABAR_RAW === "off" ? "" : DABAR_RAW;
 
 export function DabarInviteCard({
   userTexts,
