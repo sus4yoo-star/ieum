@@ -155,7 +155,7 @@ export function ChatWindow({
                     )
                   }
                   style={{ fontSize: "var(--chat-font-size, 14px)" }}
-                  className="rounded-full border border-selah-gold/20 bg-selah-bg1 px-4 py-2.5 text-selah-cream2 transition-colors hover:border-selah-gold hover:bg-selah-gold/[0.08] hover:text-selah-gold"
+                  className="rounded-full border border-selah-rose/25 bg-selah-bg1 px-4 py-2.5 text-selah-cream2 transition-colors hover:border-selah-rose hover:bg-selah-rose/[0.10] hover:text-selah-rose"
                 >
                   {ex}
                 </button>
